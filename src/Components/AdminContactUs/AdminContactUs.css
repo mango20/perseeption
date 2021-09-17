@@ -1,0 +1,120 @@
+.inboxContent {
+  padding: 95px 50px 100% 120px;
+  background-color: rgb(240, 240, 240);
+}
+.inboxList {
+  /* margin-left: 200px; */
+  /* Increased text to enable scrolling */
+  /* background-color: rgb(0, 104, 52); */
+  /* padding: 95px 0px 0px; */
+  /* height: 100%; */
+  /* width: 100%; */
+  /* overflow-x: auto;*/
+  overflow-y: auto;
+  table-layout: auto;
+  border-collapse: collapse;
+  /* table-layout: fixed; */
+  /* width: 500px; */
+  /* border-spacing: 15px; */
+  table-layout: fixed;
+  /* width: 83%; */
+  margin-top: 50px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 73%;
+  margin-left: 310px;
+  /* left: 0; */
+  /* float: right; */
+  /* margin: auto; */
+  /* margin-right: auto; */
+}
+.inboxListBody {
+  background-color: rgb(255, 255, 255);
+
+  /* padding-left: 200px; */
+  /* margin-left: 180px; Same as the width of the sidenav */
+  font-size: 16px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+.inboxList th {
+  background-color: #2b0063;
+  text-align: center;
+  padding: 19px;
+  color: #fff;
+}
+
+.inboxList td {
+  /* background-color: #36a9e1; */
+  text-align: center;
+  /* width: 100%; */
+  padding: 10px 0px 10px 0px;
+  /* border-color: black; */
+  border-bottom: 1pt solid rgb(223, 223, 223);
+  padding: 10px;
+}
+.inboxList tr {
+  background-color: rgb(255, 255, 255);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+.inboxList tr:not(:first-child):hover {
+  transform: scale(1.01);
+}
+
+.replyContactMessages {
+  color: #fff;
+  background-color: green;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.replyContactMessages:hover {
+  transform: scale(1.1);
+}
+
+.deleteContactMessages {
+  color: #fff;
+  background-color: rgb(199, 0, 0);
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.deleteContactMessages:hover {
+  transform: scale(1.1);
+}
+
+/* .input-wrapperContactUs {
+  display: inline-block;
+  position: relative;
+} */
+.input-wrapperContactUs:after {
+  font-family: "FontAwesome";
+  content: "\f002";
+  position: absolute;
+  text-align: right;
+  right: 90%;
+  border: none;
+  padding-top: 7px;
+}
+.input-wrapperContactUs {
+  position: absolute;
+  left: 0;
+  margin-left: 310px;
+  /* background-color: green; */
+  border-color: rgb(245, 245, 245);
+}
+
+.inputFilterContactUs {
+  padding: 6px;
+  padding-left: 40px;
+  padding-right: 70px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  /* border-style: 1px rgba(245, 245, 245, 0.123); */
+  /* border-radius: 5px; */
+}

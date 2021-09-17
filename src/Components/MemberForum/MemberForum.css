@@ -1,0 +1,686 @@
+.forumOuter {
+  background-color: #36a9e1;
+  padding-bottom: 20px;
+}
+
+.forumQuestionListOuter {
+  background-color: #36a9e1;
+}
+.postForumCon1 {
+  display: grid;
+  /* grid-template-columns: 1fr; */
+  grid-template-areas: "forumUsername forumUsername";
+  padding: 40px 40px 30px;
+  background-color: rgb(233, 233, 233);
+  margin: 0px 350px 0px 350px;
+  border-radius: 5px;
+}
+.postForumCon {
+  display: grid;
+  /* grid-template-columns: 1fr; */
+  grid-template-areas:
+    "forumUsername forumUsername"
+    "subjectForum subjectForum"
+    "postForum postForum"
+    "none postBtn";
+  padding: 40px 40px 30px;
+  background-color: rgb(233, 233, 233);
+  margin: 0px 350px 0px 350px;
+  border-radius: 5px;
+}
+.postForum {
+  grid-area: postForum;
+  width: 100% !important;
+  height: 200px !important;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  padding: 20px;
+}
+.postBtn {
+  grid-area: postBtn;
+  margin-top: 20px;
+  font-size: 20px;
+  padding: 10px;
+  border: none;
+  background-color: rgb(187, 187, 187);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  /* width: 100%; */
+}
+.postBtn:hover {
+  background-color: rgb(156, 156, 156);
+}
+
+.userForum {
+  /* background-color: greenyellow; */
+  display: grid;
+  grid-template-columns: 0.1fr;
+  grid-template-areas: "forumIcon forumUsername";
+  margin-bottom: 15px;
+}
+
+.forumUsername {
+  grid-area: forumUsername;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  padding-top: 15px;
+  margin-left: 10px;
+  /* background-color: grey; */
+}
+
+.forumIcon {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  /* ,argin-top: 30px; */
+}
+
+.inputSubjectForum {
+  grid-area: subjectForum;
+}
+
+.forumIcons {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 0.1fr;
+  grid-template-areas: "replyQuestions replyForum";
+  /* background-color: grey; */
+  width: 575px;
+  /* padding-right: 100px; */
+}
+
+.replyQuestions {
+  width: 100%;
+  font-size: 16px;
+  border: none;
+  padding: 7px;
+  outline: none;
+}
+
+.replyForum {
+  background-color: rgb(0, 117, 35);
+  padding: 8px 6px 0px 15px;
+  cursor: pointer;
+  color: #fff;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.replyForum:hover {
+  background-color: rgb(0, 80, 24);
+}
+
+/* ------------------- */
+.floatBtn1 {
+  position: fixed;
+  width: 75px;
+  height: 75px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #cecece;
+  /* color: #fff; */
+  color: #00142a;
+  border-radius: 50px 50px 0px 50px;
+  text-align: center;
+  /* box-shadow: 0px 10px 10px rgb(0, 0, 0); */
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: 600;
+  /* box-shadow: 1px 1px 8px 1px #000; */
+}
+
+.JoinUs {
+  margin-top: 28px;
+  text-decoration: none;
+}
+
+.floatBtn1:hover {
+  background-color: rgb(194, 194, 194);
+}
+
+/* ---------------------------- */
+.forumBody {
+  height: 100%;
+  background-color: #36a9e1;
+  display: grid;
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-rows: 0.1fr 1fr;
+  grid-template-areas:
+    "navForum navForum"
+    "forumTitleList forumMainContent";
+  grid-gap: 10px;
+  /* overflow: hidden; */
+
+  /* margin-bottom: 10px; */
+  /* overflow: none; */
+}
+
+.navForum {
+  grid-area: navForum;
+  /* background-color: #fff; */
+}
+
+.forumTitleList {
+  grid-area: forumTitleList;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 10px;
+  margin-left: 10px;
+  padding: 10px;
+  height: 50%;
+}
+
+/* .mostRecentTitle {
+  font-size: 20px;
+  font-weight: 700;
+} */
+
+.forumMainContent {
+  grid-area: forumMainContent;
+  background-color: #ffffff;
+  /* border-style: solid; */
+  /* border-color: #c6c6c6; */
+  /* height: 100vh !important; */
+  margin-bottom: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  display: grid;
+  grid-template-rows: 0.07fr 1fr;
+  grid-template-areas:
+    "upperForum"
+    "forumQuestionList";
+  position: relative;
+}
+
+.mostRecentTitle {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.mostRecentPost {
+  margin-bottom: 5px;
+}
+.upperForum {
+  grid-area: upperForum;
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+  grid-gap: 10px;
+  grid-template-areas: "btnAskQuestion searchFilterForum";
+  /* background-color: #36a9e1; */
+  margin-bottom: 10px;
+}
+.searchFilterForum {
+  grid-area: searchFilterForum;
+  /* background-color: #36a9e1; */
+}
+.btnAskQuestion {
+  background-color: #9b9e00;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  /* margin: 0 auto;
+  display: block; */
+  text-align: center;
+  padding-top: 7px;
+  /* line-height: 50%; */
+  /* vertical-align: top; */
+  /* vertical-align: middle; */
+  /* position: absolute; */
+  /* bottom: 0; */
+}
+.btnAskQuestion:hover {
+  background-color: #8b8d00;
+}
+.navForum {
+  background-color: #36a9e1;
+}
+.inputSearchForum {
+  width: 100%;
+  font-size: 16px;
+  padding: 5px 10px;
+  outline: none;
+  border-style: solid;
+  border-color: #c7c7c7;
+  border-radius: 5px;
+}
+
+.forumQuestionList {
+  grid-area: forumQuestionList;
+  /* background-color: #00ff88; */
+  width: 100%;
+  height: 100%;
+  grid-template-areas: "scrollForum";
+  position: absolute;
+}
+
+.ForumBg {
+  height: 100vh;
+}
+
+.scrollForum::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.forumQuestionList {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollForum {
+  height: initial;
+  /* overflow: scroll; */
+}
+
+.forumBody {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollForum {
+  grid-area: scrollForum;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  /* height: initial; */
+  text-align: justify;
+  /* text-overflow: ellipsis; */
+  /* white-space: nowrap; */
+  overflow: scroll;
+  padding: 5px;
+}
+
+.questionBox {
+  position: relative;
+  width: 100%;
+  background-color: rgb(230, 230, 230);
+  height: auto;
+  padding: 10px 10px 10px 10px;
+  border-radius: 5px;
+  display: grid;
+  /* border: 1px solid #b8b8b8; */
+  /* box-shadow: 0px 0px 2px #000; */
+  /* grid-template-rows: 0.4fr 1fr 0.6fr; */
+  margin-bottom: 15px;
+  grid-template-areas:
+    "forumQuestionHead"
+    "forumQuestionContent"
+    "repliesList"
+    "replyBox";
+  /* "sd"; */
+}
+
+.repliesList {
+  /* display: none; */
+  grid-area: repliesList;
+  margin-top: 15px;
+  background-color: #ffffff;
+  height: auto;
+  /* color: #fff; */
+  border-radius: 5px;
+  width: 70%;
+  padding: 5px;
+  padding-bottom: 10px;
+  /* overflow-y: scroll; */
+}
+/* .replies {
+  background-color: #8b8d00;
+} */
+
+.nameReply {
+  font-weight: 700;
+}
+
+.contentReply {
+  padding-left: 10px;
+  margin-top: 5px;
+  height: auto;
+}
+.forumQuestionHead {
+  grid-area: forumQuestionHead;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 0.06fr 1fr;
+  grid-template-areas: "iconForum iconForumName bullets";
+  margin-bottom: 3px;
+}
+
+#bullets {
+  font-size: 20px;
+  padding: 11px 13px 0px;
+  /* letter-spacing: 5px; */
+  cursor: pointer;
+}
+
+#bullets:hover {
+  background-color: #c7c7c7;
+  border-radius: 50%;
+  color: red;
+}
+.iconForum {
+  grid-area: iconForum;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.iconForumName {
+  grid-area: iconForumName;
+  font-weight: 700;
+  padding-top: 13px;
+}
+
+.forumQuestionContent {
+  grid-area: forumQuestionContent;
+  margin-top: 5px;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  padding: 5px;
+  border-radius: 5px;
+  border-bottom: 10px;
+}
+
+.titleQuestion {
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+.contentQuestion {
+  font-size: 16px;
+}
+
+.replyBox {
+  grid-area: replyBox;
+  /* position: absolute; */
+  width: 100%;
+  /* background-color: #36a9e1; */
+  height: 100%;
+  /* margin-top: 5px; */
+  display: grid;
+  grid-template-columns: 1fr 0.1fr;
+  grid-gap: 5px;
+  grid-template-areas:
+    "replies replies"
+    "replyInput sentBtn";
+}
+
+.replies {
+  display: none;
+}
+
+.replyInput {
+  /* position: absolute; */
+  grid-area: replyInput;
+  margin-top: 7px;
+  width: 100%;
+  outline: none;
+  border: 1px solid #a0a0a0;
+  border-radius: 5px;
+  padding: 4px 10px;
+  font-size: 16px;
+}
+
+.sentBtn {
+  grid-area: sentBtn;
+  text-align: center;
+  background-color: #36a9e1;
+  border-radius: 5px;
+  margin-top: 7px;
+  padding-top: 5px;
+  color: #fff;
+  /* letter-spacing: 1px; */
+  cursor: pointer;
+}
+
+.sentBtn:hover {
+  background-color: #2980ac;
+}
+
+.floatForumAskQuestionBg {
+  display: none;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.767);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+.floatForumAskQuestion {
+  /* display: none; */
+  position: absolute;
+  background-color: #ffffff;
+  height: 500px;
+  width: 500px;
+  /* display: block; */
+  top: 13%;
+  left: 35%;
+  right: 50%;
+  /* margin: auto; */
+  display: grid;
+  grid-template-rows: 0.2fr 1fr 0.05fr;
+  /* grid-template-columns: 0.2fr 1fr; */
+  grid-template-areas:
+    "postATitleQuestion"
+    "inputForumField"
+    "submitForumBtn";
+  padding-bottom: 10px;
+}
+
+.postATitleQuestion {
+  font-size: 20px;
+  font-weight: 700;
+  padding: 25px 10px;
+  text-align: center;
+  background-color: #36a9e1;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.inputForumField {
+  grid-area: inputForumField;
+  display: grid;
+  grid-template-columns: 0.08fr 1fr;
+  grid-template-rows: 0.2fr 1fr;
+  grid-template-areas:
+    "titleAskQuestionPopUp inputForumTitleQuestion"
+    "contentAskQuestionPopUp inputForumContentQuestion";
+  padding: 20px 20px 0px 20px;
+}
+
+.titleAskQuestionPopUp,
+.contentAskQuestionPopUp {
+  font-size: 16px;
+  font-weight: 700;
+}
+.inputForumTitleQuestion,
+.inputForumContentQuestion {
+  margin-bottom: 10px;
+  margin-left: 10px;
+  outline: none;
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  background-color: #e2e2e2;
+  /* border: 1px solid #a0a0a0; */
+}
+
+.inputForumContentQuestion {
+  grid-area: inputForumContentQuestion;
+  height: 280px !important;
+  width: 97.5% !important;
+}
+
+.submitForumBtn {
+  grid-area: submitForumBtn;
+  width: 100%;
+  /* background-color: #36a9e1; */
+
+  margin: 0 auto;
+  position: block;
+  /* padding-top: 30px; */
+  padding: 5px 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  grid-template-areas: "cancelPostForum submitForum";
+}
+
+.cancelPostForum {
+  background-color: #8a8a8a;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cancelPostForum:hover {
+  background-color: #535353;
+}
+.submitForum {
+  background-color: #188f00;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submitForum:hover {
+  background-color: #137400;
+}
+
+.floatYouNeedLoginBg {
+  display: none;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.767);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+.floatYouNeedContainer {
+  display: none;
+  position: relative;
+  left: 500px;
+  top: 200px;
+  border: solid black 1px;
+  /* padding: 10px; */
+  background-color: rgb(255, 255, 255);
+  text-align: left;
+  font-size: 16px;
+  width: 400px;
+  display: grid;
+  height: 200px;
+  /* padding: 30px 50px; */
+  border: none;
+  /* border-radius: 5px; */
+  /* display: none; */
+  opacity: 1;
+  /* padding-bottom: 20px; */
+
+  /* letter-spacing: 1px; */
+  grid-template-columns: 1fr 0.1fr;
+  grid-template-rows: 0.3fr 1fr 0.1fr;
+  grid-template-areas:
+    "youNeedLoginAlertMsg cancelLog"
+    "youNeedLoginAlertMsg_content youNeedLoginAlertMsg_content"
+    "forumBtns forumBtns";
+  padding-bottom: 10px;
+}
+
+.forumBtns {
+  grid-area: forumBtns;
+  width: 100%;
+  /* background-color: #36a9e1; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
+  grid-template-areas: "loginBtnForum signupBtnForum";
+  padding: 0px 10px;
+}
+.loginBtnForum {
+  grid-area: loginBtnForum;
+  width: 100%;
+
+  color: #009744;
+  border: 2px solid #009744;
+  text-align: center;
+  padding: 10px;
+  /* color: #fff; */
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 700;
+}
+
+.loginBtnForum:hover {
+  background-color: rgb(238, 238, 238);
+}
+.signupBtnForum {
+  grid-area: signupBtnForum;
+  width: 100%;
+  background-color: #009744;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.signupBtnForum:hover {
+  background-color: #007032;
+}
+
+.youNeedLoginAlertMsg {
+  /* position: absolute; */
+  grid-area: youNeedLoginAlertMsg;
+  background-color: #ff7300;
+  position: absolute;
+  width: 100%;
+  font-size: 16px;
+  padding: 10px;
+  color: #fff;
+  left: 0;
+}
+
+.cancelLog {
+  grid-area: cancelLogin;
+  background-color: #ff7300;
+  /* width: 100%; */
+  position: absolute;
+  right: 0;
+  padding-right: 10px;
+  padding: 9px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.youNeedLoginAlertMsg_content {
+  grid-area: youNeedLoginAlertMsg_content;
+  /* background-color: #36a9e1; */
+  /* position: absolute; */
+  display: block;
+  margin: 0 auto;
+  padding: 70px 30px 30px;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}

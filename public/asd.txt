@@ -1,0 +1,40 @@
+  font-family: "Oswald", sans-serif;
+  #00142a --- dark blue
+  #36a9e1 --- Light Blue
+  #c6c6c6 --- gray
+  #fff --- white
+   font-family: "Quattrocento Sans", sans-serif;
+
+   text-shadow: 1px 1px 15px black;
+   box-shadow: 1px 1px 10px black;
+
+   .usernameTxt {
+  grid-area: usernameTxt;
+  font-size: 20px;
+  padding-top: 5px;
+}
+
+.regInputUsername {
+  grid-area: regInputUsername;
+  background-color: lavenderblush;
+  height: 35px;
+  font-size: 20px;
+  border-radius: 5px;
+  border: 1px solid #c6c6c6;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  padding: 0px 20px 0px 20px;
+}
+
+ className=""
+
+.regInputUsername:focus {
+  border: 3px solid #36a9e1;
+}
+
+rows >
+columns v
+
+ "ChildFamilyPersonalDataTitle ChildFamilyPersonalDataTitle ChildFamilyPersonalDataTitle ChildFamilyPersonalDataTitle"
+    "childNameLabel childNameLabel childNameLabel childNameLabel"
+    "inputChildSurname inputChildGivenName inputChildMiddleName none"

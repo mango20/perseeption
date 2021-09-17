@@ -1,0 +1,165 @@
+.contactUsBg {
+  height: 100%;
+  width: 100%;
+}
+
+.contactUsContent {
+  background-color: #36a9e1;
+  height: 100%;
+  grid-template-columns: 0.6fr 1fr;
+  padding: 0px 200px 30px 200px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-areas: "contactUsForm map";
+}
+
+.containerContact {
+  height: 80vh;
+  /* padding-bottom: 50px; */
+  /* padding-top: 10px; */
+}
+.contactUsForm {
+  background-color: #fff;
+  display: grid;
+  grid-template-rows: 0.4fr 0.5fr 0.5fr 0.5fr 0.1fr;
+  grid-template-areas:
+    "contactUsFormTitle"
+    "contactUsFormSubtitle"
+    "contactUsName"
+    "contactUsContact"
+    "contactUsEmail"
+    "contactUsMessage"
+    "contactSubmit";
+  padding: 25px 40px 25px 40px;
+  border-radius: 5px;
+  height: 500px;
+  box-shadow: 1px 1px 15px black;
+}
+
+.contactUsFormTitle {
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  /* margin-bottom: 20px; */
+  /* background-color: lawngreen; */
+}
+
+.contactUsFormSubtitle {
+  font-size: 15px;
+  /* text-transform: uppercase; */
+  text-align: center;
+  /* margin-top: 10px; */
+  /* background-color: lightseagreen; */
+}
+
+.contactUsName {
+  font-size: 16px;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid #c6c6c6;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+.contactUsName:focus {
+  border-bottom: 3px solid #36a9e1;
+}
+.contactUsContact {
+  font-size: 16px;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid #c6c6c6;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+.contactUsContact:focus {
+  border-bottom: 3px solid #36a9e1;
+}
+.contactUsEmail {
+  font-size: 16px;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid #c6c6c6;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+.contactUsEmail:focus {
+  border-bottom: 3px solid #36a9e1;
+}
+.contactUsMessage {
+  font-size: 16px;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-right: 20px;
+  height: 100px !important;
+  width: 100% !important;
+  border-radius: 5px;
+  background-color: rgb(240, 240, 240);
+  border: 1px solid #c6c6c6;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 40px;
+}
+
+.contactUsMessage:focus {
+  border-bottom: 3px solid #36a9e1;
+}
+.contactSubmit {
+  text-decoration: none;
+  background-color: #00142a;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 15px 20px 15px 20px;
+  /* height: 50px; */
+  border-radius: 5px;
+  text-align: center;
+  letter-spacing: 2px;
+  /* text-transform: uppercase; */
+  /* margin: 0px 20px 20px 20px; */
+}
+
+.contactSubmit:hover {
+  background-color: #009744;
+}
+
+.map {
+  background-color: #fff;
+  border-radius: 5px;
+  display: grid;
+  height: 100%;
+  height: 500px;
+  box-shadow: 1px 1px 15px black;
+}
+
+.contactTitleMap {
+  padding: 25px 50px 0px 30px;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  /* color: #36a9e1; */
+  text-shadow: 1px 1px 1px #00142a;
+}
+
+.emailContactAdd {
+  padding: 0px 50px 0px 30px;
+  font-size: 16px;
+}
+
+.contactContactNum {
+  padding: 0px 50px 0px 30px;
+  font-size: 16px;
+}
+.visualMap {
+  margin-top: 10px;
+  width: 100%;
+  height: 380px;
+  border: none;
+}

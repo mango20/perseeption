@@ -1,0 +1,333 @@
+.eventCont {
+  padding: 90px 50px 150px 120px;
+  background-color: rgb(240, 240, 240);
+}
+.AdminHeaderTitle {
+  grid-area: AdminHeaderTitle;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  padding-top: 10px;
+  color: #fff;
+}
+
+.AdminHeader {
+  background: #00142a;
+  font-size: 30px;
+  padding: 10px 100px 0px 50px;
+  display: grid;
+  text-align: left;
+  grid-template-areas: "AdminHeaderTitle logout";
+  /* position: fixed; */
+  width: 100%;
+  height: 70px;
+  /* z-index: 500; */
+  position: fixed;
+  z-index: 1;
+}
+.logout {
+  margin-top: -45px;
+  /* text-align: right; */
+  text-align: right;
+  margin-right: -50px;
+  grid-area: fa-sign-out;
+  color: #fff;
+  text-decoration: none;
+}
+
+.logout:hover {
+  color: #36a9e1;
+}
+.imgAdIcon {
+  width: 100px;
+}
+.imgAdTxt {
+  width: 100px;
+}
+.imgAdminContainer {
+  padding-left: 230px;
+}
+
+.imgAdmintxt {
+  width: 130px;
+}
+
+.sidebar {
+  height: 100%;
+  width: 270px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #00142a;
+  overflow-x: hidden;
+  padding-top: 20px;
+  padding: 20px 0px 0px 18px;
+}
+
+.sidebar a {
+  margin-top: 20px;
+  padding: 10px 0px 6px 10px;
+  /* padding-left: 10px; */
+  text-decoration: none;
+  font-size: 20px;
+  color: #fff;
+  display: block;
+}
+
+.form {
+  margin-left: 180px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+.eventAdImg {
+  width: 100%;
+}
+
+.eventAdminRender {
+  background-color: #fff;
+  display: grid;
+  grid-template-areas:
+    "announcement_Img"
+    "event_Title"
+    "event_Date"
+    "event_Content"
+    "readMoreEvent";
+  box-shadow: 1px 1px 10px black;
+  padding-bottom: 30px;
+}
+
+.eventAdmin_Title {
+  text-align: left;
+  font-size: 30px;
+  font-weight: 700;
+  margin: 10px 20px 0px 20px;
+  height: 33px;
+  display: inline-block;
+  word-break: break-word;
+  overflow: hidden;
+}
+.container {
+  margin-left: 200px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  /* padding: 0px 10px; */
+  /* background-color: #36a9e1; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 10px 0px 0px 0px;
+  grid-gap: 20px;
+  height: 100%;
+  text-align: center;
+}
+
+.eventAdminTitleTxt {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.inputeventTitle {
+  margin-top: 5px;
+  padding: 10px 20px 10px 20px;
+  width: 100% !important;
+
+  border-radius: 5px;
+  border: 1px solid #c6c6c6;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.inputeventTitle:focus {
+  border-bottom: 3px solid #ffae00;
+}
+
+.eventAdmin_Date {
+  text-align: left;
+  font-size: 15px;
+  margin: 10px 20px 0px 20px;
+  height: 25px;
+  display: inline-block;
+  word-break: break-word;
+  overflow: hidden;
+}
+
+.updateEventTitle {
+  margin-top: 15px;
+  width: 60%;
+  font-size: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+  border: 1.5px solid #c6c6c6;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  font-size: 16px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.updateEventContent {
+  margin-top: 15px;
+  width: 60%;
+  font-size: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
+  border: 1.5px solid #c6c6c6;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  font-size: 16px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.inpupdateEventContent {
+  /* padding-top: -5px; */
+  font-size: 20px;
+  padding: 5px 5px 5px 5px;
+  border-radius: 5px;
+  border: 10px;
+  background-color: #36a9e1;
+  color: #fff;
+}
+.updateBtn {
+  /* padding-top: -5px; */
+  font-size: 20px;
+  padding: 5px 5px 5px 5px;
+  border-radius: 5px;
+  border: 10px;
+  background-color: #36a9e1;
+  color: #fff;
+  cursor: pointer;
+}
+.delAdminButton {
+  width: 90%;
+  margin: auto;
+  font-size: 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #00142a;
+  color: #fff;
+  margin-top: 20px;
+}
+.eventAdmin_Content {
+  text-align: left;
+  font-size: 15px;
+  margin: 0px 20px 10px 20px;
+  height: 35px;
+  display: inline-block;
+  word-break: break-word;
+  overflow: hidden;
+}
+.contentEventAdminTxt {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.fileBtn {
+  /* padding: 10px; */
+  margin-top: 20px;
+  font-size: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.eventAdminContent {
+  margin-top: 5px;
+  padding: 10px 20px 10px 20px;
+  width: 100% !important;
+  height: 200px !important;
+  border-radius: 5px;
+  border: 1px solid #c6c6c6;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  font-size: 20px;
+}
+.eventAdminContent:focus {
+  border-bottom: 3px solid #ffae00;
+}
+
+.containerBtnAnnouncement {
+  display: grid;
+  grid-template-areas: "fileBtn postEventBtn";
+  /* background-color: aqua; */
+}
+.fileBtn {
+  margin-top: 20px;
+  font-size: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.postEventBtn {
+  font-size: 20px;
+  border-radius: 5px;
+  border: none;
+  padding: 15px 0px 15px 0px;
+  background-color: #009744;
+  color: #fff;
+  margin-bottom: 50px;
+  margin-top: 10px;
+  /* margin-top: -300px; */
+  cursor: pointer;
+  /* margin-left: 50%; */
+}
+.postEventBtn:hover {
+  background-color: #00142a;
+}
+
+.messageEventPopUpouter {
+  display: none;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.767);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+.messageEvent_Content {
+  position: absolute;
+  left: 500px;
+  top: 200px;
+  border: solid black 1px;
+  /* padding: 10px; */
+  background-color: rgb(255, 255, 255);
+  text-align: left;
+  font-size: 16px;
+  width: 400px;
+  height: 200px;
+  display: grid;
+  /* padding: 30px 50px; */
+  border: none;
+  /* border-radius: 5px; */
+  /* display: none; */
+  opacity: 1;
+  /* padding-bottom: 20px; */
+  border-radius: 5px;
+  letter-spacing: 1px;
+  grid-template-rows: 0.1fr 1fr;
+  grid-template-areas: "EventMsgTitle" "EventMsg";
+}
+
+.EventMsgTitle {
+  background-color: #009744;
+  padding: 10px;
+  /* height: ; */
+  grid-area: announcementMsgTitle;
+}
+
+.EventMsg {
+  grid-area: announcementMsg;
+  /* background-color: aqua; */
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 55px;
+}

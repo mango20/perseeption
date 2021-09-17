@@ -1,0 +1,1327 @@
+.beforeCont {
+  display: none;
+}
+
+
+
+.floatInvalid {
+  display: none;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.767);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+.Invalid_Content {
+  position: absolute;
+  left: 500px;
+  top: 200px;
+  border: solid black 1px;
+  /* padding: 10px; */
+  background-color: rgb(255, 255, 255);
+  text-align: left;
+  font-size: 16px;
+  width: 400px;
+  display: grid;
+  /* padding: 30px 50px; */
+  border: none;
+  /* border-radius: 5px; */
+  /* display: none; */
+  opacity: 1;
+  /* padding-bottom: 20px; */
+  border-radius: 5px;
+  letter-spacing: 1px;
+}
+
+.invalid_reg_msg {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 auto;
+  display: block;
+  padding: 60px;
+  letter-spacing: 0px;
+}
+
+.RegisteredMembInvalid_Contenter_Content p,
+.back_reg_form_Btn {
+  font-size: 16px;
+  padding: 10px 20px;
+}
+.Invalid_Title {
+  font-size: 20px;
+  background-color: #ff0000;
+  padding: 10px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.floatReg_form {
+  display: none;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.575);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+.Reg_formContent {
+  position: absolute;
+  left: 410px;
+  top: 100px;
+  /* right: 500px; */
+  /* border: solid black 1px; */
+  /* padding: 10px; */
+  background-color: rgb(255, 255, 255);
+  /* text-align: justify; */
+  font-size: 16px;
+  width: 600px;
+  /* display: grid; */
+  overflow-y: scroll;
+  /* width: 100%; */
+  /* height: 100%; */
+  /* overflow-x: scroll; */
+  height: 500px;
+  /* padding: 30px 50px; */
+  border: none;
+  /* border-radius: 5px; */
+  /* display: none; */
+  opacity: 1;
+  /* display: flex; */
+  /* text-align: center; */
+  /* margin: 0 auto;
+  display: inline-block; */
+  padding-bottom: 30px;
+}
+.reg_form_Cont {
+  /* background-color: #009744; */
+  padding: 0px 30px 30px 30px;
+  display: grid;
+  grid-template-columns: 0.9fr 1fr;
+
+  grid-template-areas: "reg_form_list_info rf_data";
+}
+.form_reg_btn {
+  text-align: center;
+  background-color: #009744;
+  padding: 12px;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 16px;
+  border-radius: 5px;
+  width: 50%;
+  margin: 0 auto;
+  display: block;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+}
+
+.form_reg_btn:hover {
+  background-color: #007032;
+}
+.title_reg_form_ {
+  font-size: 24px;
+  font-weight: 700;
+  background-color: #36a9e1;
+  padding: 20px 30px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+.reg_form_list_info {
+  /* text-align: right; */
+  /* background-color: #36a9e1; */
+  margin-right: 50px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.floatRegistered_Member {
+  display: none;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.575);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+.RegisteredMember_Content {
+  position: absolute;
+  left: 500px;
+  top: 150px;
+  border: solid black 1px;
+  /* padding: 10px; */
+  background-color: rgb(255, 255, 255);
+  text-align: left;
+  font-size: 16px;
+  width: 400px;
+  display: grid;
+  /* padding: 30px 50px; */
+  border: none;
+  /* border-radius: 5px; */
+  /* display: none; */
+  opacity: 1;
+  padding-bottom: 20px;
+}
+
+.RegisteredMember_Content p,
+.back_reg_form_Btn {
+  font-size: 16px;
+  padding: 10px 20px;
+}
+.RegisteredMember_Title {
+  font-size: 20px;
+  background-color: #a200ff;
+  padding: 10px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.RegisteredMember_Btn {
+  text-align: center;
+  background-color: #009744;
+  color: #fff;
+  width: 50%;
+  margin-left: 25%;
+  font-size: 16px;
+  padding: 5px 0px;
+  border: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.RegisteredMember_Btn:hover {
+  background-color: #00682f;
+}
+
+.btn_display {
+  display: flex;
+  /* margin: 0 auto; */
+  display: blocks;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.back_reg_form_Btn {
+  background-color: #929292;
+  text-decoration: none;
+  width: 100%;
+  margin-right: 5px;
+  font-weight: 600;
+  /* font-size: 14px; */
+  text-align: center;
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+.back_reg_form_Btn:hover {
+  background-color: #7e7e7e;
+}
+.registeredMember_Btn {
+  background-color: #009744;
+  color: #fff;
+  width: 100%;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.registeredMember_Btn:hover {
+  background-color: #007032;
+}
+.floatDisclaimer {
+  /* display: none; */
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.575);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+.disclaimerContent {
+  position: absolute;
+  left: 500px;
+  top: 150px;
+  border: solid black 1px;
+  /* padding: 10px; */
+  background-color: rgb(255, 255, 255);
+  text-align: justify;
+  font-size: 16px;
+  width: 400px;
+  display: grid;
+  /* padding: 30px 50px; */
+  border: none;
+  /* border-radius: 5px; */
+  /* display: none; */
+  opacity: 1;
+}
+
+.disclaimerContent p {
+  font-size: 16px;
+  padding: 10px 20px;
+}
+.dTitle {
+  font-size: 20px;
+  background-color: #36a9e1;
+  padding: 10px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.disclaimerBtn {
+  text-align: center;
+  background-color: #009744;
+  color: #fff;
+  width: 50%;
+  margin-left: 25%;
+  font-size: 16px;
+  padding: 5px 0px;
+  border: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.disclaimerBtn:hover {
+  background-color: #00682f;
+}
+.registrationBg {
+  background-color: #f5f5f5;
+  height: 100%;
+  /* display: none; */
+}
+.regOuter {
+  background-color: #bebebe;
+  padding: 90px 30px 0px 50px;
+  padding-bottom: 50px;
+  display: grid;
+  grid-template-columns: 1fr 0.3fr;
+  grid-template-areas: " formRegContent fixedRegNav";
+}
+
+.ChildFamilyBox {
+  background-color: #fff;
+  padding: 30px 30px 20px 30px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  /* border-top-right-radius: 50px; */
+  border-top-style: solid;
+  border-top-color: rgb(255, 0, 179);
+}
+
+.childFamOuter {
+  display: grid;
+  grid-template-areas:
+    "childsName"
+    "fatherSec"
+    "motherCont"
+    "guardianInfo"
+    "siblingContainer"
+    "addressCont"
+    "contactDetails"
+    "monthlyInfo"
+    "occupation";
+}
+
+.childBdayMsg {
+  margin-left: 100px;
+  color: red;
+  margin-bottom: 30px;
+  display: none;
+}
+.occupation {
+  grid-area: occupation;
+  display: grid;
+  /* text-align: right; */
+  grid-template-areas:
+    "fOccuBox"
+    "mOccuBox";
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.fOccuBox {
+  grid-area: fOccuBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "occuLabel focc";
+  margin-bottom: 7px;
+  /* background-color: #dddddd; */
+}
+
+.mOccuBox {
+  grid-area: mOccuBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "occuLabel mocc";
+  margin-bottom: 7px;
+  /* background-color: #dddddd; */
+}
+
+.monthlyInfo {
+  grid-area: monthlyInfo;
+  display: grid;
+  grid-template-columns: 0.01fr 0.5fr 0.01fr 1fr;
+  /* text-align: right; */
+  grid-template-areas:
+    "below12 monthlyIncome thirty monthlyIncome"
+    "fifty monthlyIncome above monthlyIncome";
+  margin-bottom: 10px;
+  margin-left: 100px;
+}
+
+.monthlyIncomeTitle {
+  font-weight: 700;
+  font-size: 20px;
+  /* margin-left: 100px; */
+}
+.monthlyIncome {
+  margin-top: 10px;
+}
+.below12,
+.thirty,
+.fifty,
+.above {
+  margin-top: 18px;
+}
+
+.monthlyIncome {
+  margin-left: 7px;
+  margin-right: 7px;
+}
+.contactDetails {
+  grid-area: contactDetails;
+  display: grid;
+  /* text-align: right; */
+  grid-template-areas:
+    "fContactNumBox"
+    "mContactNumBox"
+    "flContactNumBox"
+    "mlContactNumBox"
+    "fEmailBox"
+    "mEmailBox";
+  margin-bottom: 30px;
+}
+
+.fContactNumBox {
+  grid-area: fContactNumBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "contactLable fcontact";
+  margin-bottom: 7px;
+  /* background-color: #dddddd; */
+}
+
+.mContactNumBox {
+  grid-area: mContactNumBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "contactLable mcontact";
+  margin-bottom: 7px;
+  /* background-color: #dddddd; */
+}
+
+.flContactNumBox {
+  grid-area: flContactNumBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "contactLable fland";
+  margin-bottom: 7px;
+  /* background-color: #dddddd; */
+}
+
+.mlContactNumBox {
+  grid-area: mlContactNumBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "contactLable mland";
+  margin-bottom: 7px;
+  /* background-color: #dddddd; */
+}
+
+.fEmailBox {
+  grid-area: fEmailBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "contactLable femail";
+  margin-bottom: 7px;
+  /* background-color: #dddddd; */
+}
+
+.mEmailBox {
+  grid-area: mEmailBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "contactLable email";
+  margin-bottom: 7px;
+  /* background-color: #dddddd; */
+}
+
+.addressCont {
+  grid-area: addressCont;
+  display: grid;
+  /* text-align: right; */
+  grid-template-areas:
+    "cityBox"
+    "regionBox"
+    "provinceBox";
+  margin-bottom: 30px;
+}
+
+.cityBox {
+  grid-area: cityBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "addressLable city";
+  margin-bottom: 7px;
+  /* background-color: #dddddd; */
+}
+
+.regionBox {
+  grid-area: regionBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "addressLable region";
+  margin-bottom: 7px;
+  /* background-color: #dddddd; */
+}
+
+.provinceBox {
+  grid-area: provinceBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "addressLable province";
+  margin-bottom: 7px;
+  /* background-color: #dddddd; */
+}
+
+.siblingContainer {
+  grid-area: siblingContainer;
+  display: grid;
+  /* text-align: right; */
+  grid-template-areas:
+    "firstSibBox"
+    "secSibBox"
+    "thirdSibBox";
+  margin-bottom: 30px;
+}
+
+.firstSibBox {
+  grid-area: firstSibBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "sibLabel firstSib";
+  margin-bottom: 7px;
+  /* background-color: #dddddd; */
+}
+
+.secSibBox {
+  grid-area: secSibBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "sibLabel secSib";
+  margin-bottom: 7px;
+  /* background-color: #dddddd; */
+}
+
+.thirdSibBox {
+  grid-area: thirdSibBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "sibLabel thirdSib";
+  margin-bottom: 7px;
+  /* background-color: #dddddd; */
+}
+
+.guardianInfo {
+  grid-area: guardianInfo;
+  display: grid;
+  /* text-align: right; */
+  grid-template-areas:
+    "guardianSurnameBox"
+    "guardiannameBox"
+    "guardianMiddlenameBox"
+    "guardianContactBox";
+  margin-bottom: 30px;
+}
+
+.guardianContactBox {
+  grid-area: guardianContactBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "guardianLabel guardianContact";
+  margin-bottom: 7px;
+  /* background-color: #dddddd; */
+}
+
+.guardianMiddlenameBox {
+  grid-area: guardianMiddlenameBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "guardianLabel guardianMiddle";
+  margin-bottom: 7px;
+  /* background-color: #dddddd; */
+}
+.guardiannameBox {
+  grid-area: guardiannameBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "guardianLabel guardianGivenName";
+  margin-bottom: 7px;
+  /* background-color: #dddddd; */
+}
+
+.guardianSurnameBox {
+  grid-area: guardianSurnameBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "guardianLabel guardianFam";
+  margin-bottom: 7px;
+  /* background-color: #dddddd; */
+}
+
+.motherCont {
+  grid-area: motherCont;
+  display: grid;
+  /* text-align: right; */
+  grid-template-areas: "motherSurnameBox" "mothernameBox" "motherMiddlenameBox" "motherBirthdayBox";
+  margin-bottom: 30px;
+}
+
+.motherSurnameBox {
+  grid-area: motherSurnameBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "motherLabel inputMotherSurname";
+  margin-bottom: 7px;
+  /* background-color: #dddddd; */
+}
+
+.mothernameBox {
+  grid-area: mothernameBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "motherLabel inputMotherfirst";
+  margin-bottom: 7px;
+  /* background-color: #dddddd; */
+}
+.motherMiddlenameBox {
+  grid-area: motherMiddlenameBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "motherLabel inputMotherMiddle";
+  margin-bottom: 7px;
+  /* background-color: #dddddd; */
+}
+
+.motherBirthdayBox {
+  grid-area: motherBirthdayBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "motherLabel inputMotherBday";
+
+  /* background-color: #dddddd; */
+}
+
+.fatherSec {
+  grid-area: fatherSec;
+  display: grid;
+  /* text-align: right; */
+  grid-template-areas: "fatherSurnameBox" "fatherNameBox" "fatherMiddlenameBox" "fatherBirthdayBox";
+  margin-bottom: 30px;
+}
+
+.fatherBirthdayBox {
+  grid-area: fatherBirthdayBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "childNameLabel inputFatherGivenName";
+
+  /* background-color: #dddddd; */
+}
+
+.fatherMiddlenameBox {
+  grid-area: fatherMiddlenameBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "childNameLabel inputFatherGivenName";
+  margin-bottom: 7px;
+  /* background-color: #dddddd; */
+}
+
+.fatherNameBox {
+  grid-area: fatherNameBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "childNameLabel inputFatherGivenName";
+  margin-bottom: 7px;
+  /* background-color: #dddddd; */
+}
+
+.fatherSurnameBox {
+  grid-area: fatherSurnameBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "childNameLabel inputFatherSurname";
+  margin-bottom: 7px;
+  /* background-color: #dddddd; */
+}
+.inputFatherBirthday,
+.inputMotherBday,
+.guardianContact,
+.fcontact,
+.mcontact,
+.fland,
+.mland,
+.femail,
+.memail,
+.inputDobChild {
+  padding: 5px;
+  font-size: 16px;
+  border-style: solid;
+  border-color: #dddddd;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  outline: none;
+  width: 50%;
+}
+.childsName {
+  grid-area: childsName;
+  display: grid;
+  /* text-align: right; */
+  grid-template-areas: "childSurnameBox" "childNameBox" "childMiddleNameBox";
+  margin-bottom: 30px;
+}
+
+.childMiddleNameBox {
+  grid-area: childMiddleNameBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "childNameLabel inputChildGivenName";
+
+  /* background-color: #dddddd; */
+}
+
+.childNameBox {
+  grid-area: childNameBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas:
+    "childNameLabel inputChildGivenName"
+    "none usernameNameMsg";
+  margin-bottom: 7px;
+
+  /* background-color: #dddddd; */
+}
+
+.usernameNameMsg {
+  grid-area: usernameNameMsg;
+  color: red;
+  margin-bottom: 7px;
+  display: none;
+}
+.childSurnameBox {
+  grid-area: childSurnameBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas:
+    "childNameLabel inputChildSurname"
+    "none usernameMsg";
+  margin-bottom: 7px;
+  /* background-color: #dddddd; */
+}
+.usernameMsg {
+  grid-area: usernameMsg;
+  color: red;
+  margin-bottom: 7px;
+  display: none;
+}
+
+.childNameLabel,
+.fatherLabel,
+.motherLabel,
+.usernameTxt,
+.passwordTxt,
+.guardianLabel,
+.sibLabel,
+.addressLable,
+.contactLable,
+.occuLabel,
+.childDataLabel {
+  text-align: right;
+}
+.childNameLabel,
+.fatherLabel,
+.motherLabel,
+.usernameTxt,
+.passwordTxt,
+.guardianLabel,
+.sibLabel,
+.addressLable,
+.contactLable,
+.occuLabel,
+.childDataLabel {
+  margin-right: 10px;
+}
+.childsDataBox {
+  background-color: #fff;
+  padding: 30px 30px 20px 30px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  border-top-style: solid;
+  border-top-color: rgb(238, 255, 0);
+}
+
+.cont9 {
+  grid-area: childsName;
+  display: grid;
+  /* text-align: right; */
+  grid-template-areas:
+    "childBirthdayBox" "childSex" "schoolBoc"
+    "yrLevelBox"
+    "schoolAddressBox"
+    "causeBlindnessBox";
+  margin-bottom: 30px;
+}
+
+.schoolBoc {
+  grid-area: schoolBoc;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "childDataLabel inpSch";
+  margin-bottom: 10px;
+}
+
+.yrLevelBox {
+  grid-area: yrLevelBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "childDataLabel inpSch";
+  margin-bottom: 10px;
+}
+
+.schoolAddressBox {
+  grid-area: schoolAddressBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "childDataLabel inpSch";
+  margin-bottom: 10px;
+}
+
+.causeBlindnessBox {
+  grid-area: causeBlindnessBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "childDataLabel inpSch";
+  margin-bottom: 10px;
+}
+
+.childBirthdayBox {
+  grid-area: childBirthdayBox;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "childNameLabel inputFatherGivenName";
+  margin-bottom: 7px;
+  /* background-color: #dddddd; */
+}
+
+.childSex {
+  grid-area: childSex;
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 0.02fr 0.05fr 0.02fr 0.01fr;
+  grid-template-areas: "childDataLabel inputMale maleTxt inpFem femTxt";
+  margin-bottom: 7px;
+  margin-top: 10px;
+  /* background-color: #dddddd; */
+}
+
+.vTitle {
+  font-size: 20px;
+  font-weight: 700;
+}
+.inputMale,
+.inpFem {
+  margin-top: 3px;
+  /* margin-right: 60px; */
+}
+
+.cont12 {
+  /* grid-area: childBirthdayBox; */
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas:
+    "visionLabel tbOptionBox"
+    "visionLabel inpDisTb";
+
+  margin-bottom: 7px;
+}
+
+.lvBox {
+  display: grid;
+  /* text-align: right; */
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas:
+    "visionLabel lbOptionBox"
+    "visionLabel inpDisTb";
+
+  margin-bottom: 7px;
+}
+.visionLabel {
+  font-size: 16px;
+  font-weight: 700;
+  text-align: right;
+  margin-right: 10px;
+  margin-bottom: 15px;
+}
+
+.leftTbTxt,
+.rightTbTxt,
+.bothTxt,
+.lvLeftTxt,
+.lvRightTxt,
+.lvBothTxt {
+  margin-left: 5px;
+  margin-right: 30px;
+}
+.lbOptionBox {
+  grid-area: lbOptionBox;
+}
+.inpDisTb {
+  margin-bottom: 10px;
+}
+.childDataLabel1 {
+  margin-left: 170px;
+  font-weight: 700;
+}
+
+/* .tbOptionBox {
+  margin-bottom: 10px;
+} */
+.maleTxt,
+.femTxt {
+  margin-top: 2px;
+  margin-right: 60px;
+  margin-left: 5px;
+}
+.needsChildBox {
+  background-color: #fff;
+  padding: 30px 30px 20px 30px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  border-top-style: solid;
+  border-top-color: rgb(153, 0, 255);
+}
+
+.registrationBox {
+  background-color: #fff;
+  padding: 30px 30px 20px 30px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border-top-style: solid;
+  border-top-color: rgb(0, 164, 170);
+}
+
+.rowTerms {
+  margin-bottom: 10px;
+}
+.termsCondition {
+  margin-left: 10px;
+}
+
+.registrationTitleB {
+  font-size: 24px;
+  margin-bottom: 5px;
+  font-weight: 700;
+  /* color: #36a9e1; */
+}
+
+.registrationSubtitle {
+  margin-bottom: 20px;
+  color: rgb(112, 112, 112);
+}
+
+.registrationTitleChildsData {
+  font-size: 24px;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.registrationSubtitleChildsData {
+  margin-bottom: 20px;
+  color: rgb(112, 112, 112);
+}
+
+.regUserData {
+  background-color: #fff;
+  padding: 30px 30px 30px 30px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  border-top-style: solid;
+  border-top-color: rgb(17, 0, 255);
+  width: 100%;
+}
+
+.userInpPassUser {
+  display: grid;
+  grid-template-areas: "inputUsernameBox" "inputPassBox";
+  /* background-color: #36a9e1; */
+}
+.inputUsernameBox {
+  display: grid;
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas:
+    "usernameTxt regInputUsername"
+    "none instructions"
+    "none usernameMessages";
+}
+.instructions {
+  grid-area: instructions;
+  margin-bottom: 7px;
+  font-size: 14px;
+  color: #969696;
+  /* background-color: #445258; */
+}
+.usernameMessages {
+  grid-area: usernameMessages;
+  /* margin-bottom: 10px; */
+}
+
+.inputPassBox {
+  display: grid;
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas:
+    "passwordTxt inputRegPass"
+    "none passInstructions"
+    "none regPassMessages";
+}
+
+.passInstructions {
+  grid-area: passInstructions;
+  margin-bottom: 7px;
+  font-size: 14px;
+  color: #969696;
+}
+
+.regPassMessages {
+  grid-area: regPassMessages;
+  /* margin-bottom: 10px; */
+}
+.weakPass,
+.strongPass,
+.validUsername,
+.invalidUserName {
+  margin-bottom: 10px;
+}
+.regInputUsername,
+.inputRegPass,
+.inputChildSurname,
+.inputChildGivenName,
+.inputChildMiddleName,
+.inputFatherSurname,
+.inputFatherGivenName,
+.inputFatherMiddleName,
+.inputMotherMiddle,
+.inputMotherfirst,
+.inputMotherSurname,
+.guardianGivenName,
+.guardianFam,
+.guardianMiddle,
+.guardianContact,
+.firstSib,
+.secSib,
+.thirdSib,
+.city,
+.region,
+.province,
+.mocc,
+.focc,
+.inpSch,
+.inpYGL,
+.inpuSchAdd,
+.inpCause,
+.inpDisTb,
+.inpAddDislv {
+  padding: 5px;
+  font-size: 16px;
+  border-style: solid;
+  border-color: #dddddd;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.usernameTxt,
+.passwordTxt,
+.childNameLabel,
+.fatherLabel,
+.motherLabel,
+.guardianLabel,
+.sibLabel,
+.addressLable,
+.contactLable,
+.monthlyIncome,
+.occuLabel,
+.childDataLabel {
+  font-size: 16px;
+  font-weight: 700;
+  padding-top: 5px;
+}
+.registrationTitleAccount {
+  font-size: 24px;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.registrationSubtitleAccount {
+  margin-bottom: 20px;
+  color: rgb(112, 112, 112);
+}
+
+.registrationTitleNeeds {
+  font-size: 24px;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.registrationSubtitleNeeds {
+  margin-bottom: 20px;
+  color: rgb(112, 112, 112);
+}
+
+.regNav {
+  /* padding-top: 50px; */
+  background-color: #36a9e1;
+  margin-left: 30px;
+}
+
+.fixedRegNav {
+  background-color: #fff;
+  height: fit-content;
+  /* width: 200px;  */
+  position: fixed;
+  right: 0;
+  margin-right: 50px;
+  width: 18%;
+  /* padding: 0px 10px 20px 10px; */
+  /* margin-left: 40px; */
+}
+
+.regNavCont p {
+  font-size: 16px;
+  padding: 10px 17px;
+  /* border: 1px solid #c6c6c656; */
+  transition: all 0.2s ease-in-out;
+}
+
+.regNavCont p:not(:first-child):hover {
+  background-color: #f5ffbc;
+  cursor: pointer;
+  transform: scale(1.01);
+  border-radius: 2px;
+}
+
+.titleNavReg {
+  font-size: 25px;
+  /* padding: 10px; */
+  background-color: #36a9e1;
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Validation */
+
+/* Username */
+.invalidUserName {
+  display: none;
+  color: red;
+}
+
+.validUsername {
+  display: none;
+  color: #009744;
+}
+
+/* Password */
+.invalidPass {
+  display: none;
+  color: red;
+}
+
+.validPass {
+  display: none;
+  color: #009744;
+}
+
+.table1 {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.table1 td {
+  text-align: center;
+  padding: 5px;
+  background-color: rgb(228, 228, 228);
+}
+.table1 th {
+  font-size: 20px;
+  text-align: center;
+  background-color: aqua;
+  padding: 10px;
+}
+
+#tableMessage {
+  margin-bottom: 10px;
+  color: red;
+  display: none;
+}
+
+.tableService {
+  width: 100%;
+  margin-bottom: 20px;
+  /* border-style: solid; */
+  /* border-color: #009744; */
+}
+
+.tableService td {
+  text-align: center;
+  padding: 5px;
+  background-color: rgb(228, 228, 228);
+}
+.tableService th {
+  font-size: 20px;
+  text-align: center;
+  background-color: rgb(0, 252, 63);
+  padding: 10px;
+}
+
+#tableMessageTheraphy {
+  margin-bottom: 10px;
+  color: red;
+  display: none;
+}
+#monthlyIncomeTitle {
+  margin-bottom: 10px;
+  color: red;
+  display: none;
+  margin-left: 20px;
+}
+
+.otherConNeeds {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.conditionTxtArea {
+  width: 100% !important;
+  height: 100px !important;
+  padding: 5px;
+  font-size: 16px;
+  border-style: solid;
+  border-color: #dddddd;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.proofPaymentTxt {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  /* display: flex; */
+}
+
+.uploadPayment {
+  margin-bottom: 10px;
+}
+.uploadMessage {
+  margin-bottom: 10px;
+  color: red;
+  display: none;
+}
+
+#sexMsg {
+  margin-left: 210px;
+  margin-bottom: 7px;
+  color: red;
+  display: none;
+}
+.RegBtnReg {
+  width: 100%;
+  background-color: #36a9e1;
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.RegBtnReg:hover {
+  background-color: #009744;
+}
+
+.loginLink {
+  text-decoration: none;
+  color: #36a9e1;
+}
+
+.loginLink:hover {
+  color: #009744;
+}
+
+.signinBtn {
+  text-align: center;
+  color: #6b6b6b;
+}

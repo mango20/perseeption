@@ -1,0 +1,335 @@
+.adminMemberListBg {
+  background-color: rgb(240, 240, 240);
+}
+.form1 {
+  margin-left: 200px;
+}
+
+.table5 th {
+  background-color: #2b0063;
+  text-align: center;
+  padding: 10px;
+  color: #fff;
+  /* position: fixed; */
+}
+
+.table5 td {
+  /* background-color: #36a9e1; */
+  text-align: center;
+  /* width: 100%; */
+}
+.table6 td {
+  /* background-color: #36a9e1; */
+  text-align: center;
+  /* width: 100%; */
+}
+
+.table5 tr:nth-child(even) {
+  background-color: #ececec;
+}
+
+.table6 tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.outerTable {
+  overflow-x: auto;
+  overflow-y: auto;
+  height: 350px;
+  margin-bottom: 50px;
+  background-color: #fff;
+
+  /* border: none; */
+}
+.table5 {
+  width: 100%;
+  /* overflow-x: auto;
+  overflow-y: auto; */
+  table-layout: auto;
+  border-collapse: collapse;
+  /* table-layout: fixed; */
+  /* width: 500px; */
+  /* border-spacing: 15px; */
+  table-layout: fixed;
+  width: 1500px;
+}
+
+.table5 td {
+  padding: 10px 0px 10px 0px;
+}
+
+.table6 td {
+  padding: 5px 0px 5px 0px;
+}
+
+.outerTable1 {
+  overflow-x: auto;
+  overflow-y: auto;
+  height: 400px;
+  margin-bottom: 50px;
+  background-color: #fff;
+}
+
+.table6 {
+  width: 100%;
+  /* overflow-x: auto;
+  overflow-y: auto; */
+  /* overflow-x: auto; */
+  /* overflow-y: scroll; */
+  /* padding: 10px; */
+  table-layout: auto;
+  border-collapse: collapse;
+  background-color: #fff;
+  table-layout: fixed;
+  width: 1500px;
+}
+
+.table6 th {
+  padding: 10px;
+  background-color: #737500;
+  color: #fff;
+  text-align: center;
+}
+
+.approveMemberList {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.pendingMemberList {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.approveBtn {
+  padding: 5px;
+  background-color: rgb(0, 182, 55);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.approveBtn:hover {
+  transform: scale(1.2);
+}
+.deleteMemberRequest {
+  padding: 5px;
+  background-color: rgb(216, 0, 0);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.deleteMemberRequest:hover {
+  transform: scale(1.2);
+}
+.editMemberBtn {
+  background-color: rgb(255, 174, 0);
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+.editMemberBtn:hover {
+  transform: scale(1.2);
+}
+.deleteMemberList {
+  padding: 5px;
+  background-color: rgb(216, 0, 0);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.deleteMemberList:hover {
+  transform: scale(1.2);
+}
+
+.dividerTitleFilter {
+  display: grid;
+  grid-template-columns: 1fr 0.4fr;
+  grid-template-areas: "pendingMemberList input-wrapper";
+  margin-bottom: 10px;
+}
+.dividerTitleFilter2 {
+  display: grid;
+  grid-template-columns: 1fr 0.4fr;
+  grid-template-areas: "approveMemberList input-wrapper2";
+  margin-bottom: 10px;
+}
+
+.inputFilter2 {
+  padding: 6px;
+  padding-left: 40px;
+  padding-right: 70px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  /* margin-top: 1px; */
+}
+.input-wrapper2 {
+  display: inline-block;
+  position: relative;
+}
+.input-wrapper2:after {
+  font-family: "FontAwesome";
+  content: "\f002";
+  position: absolute;
+  text-align: right;
+  right: 90%;
+  border: none;
+  padding-top: 5px;
+}
+
+.filterBtn2 {
+  padding: 6px;
+  border: none;
+  background-color: green;
+  color: #fff;
+  font-size: 16px;
+}
+.filterBtn2:active {
+  transform: scale(1.2);
+}
+.input-wrapper {
+  display: inline-block;
+  position: relative;
+}
+
+.input-wrapper:after {
+  font-family: "FontAwesome";
+  content: "\f002";
+  position: absolute;
+  text-align: right;
+  right: 90%;
+  border: none;
+  padding-top: 5px;
+}
+
+.inputFilter {
+  padding: 6px;
+  padding-left: 40px;
+  padding-right: 70px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  /* margin-top: 1px; */
+}
+
+.filterBtn {
+  padding: 6px;
+  border: none;
+  background-color: green;
+  color: #fff;
+  font-size: 16px;
+}
+.filterBtn:active {
+  transform: scale(1.2);
+}
+
+.addAdminNewMember {
+  margin-left: 83%;
+  padding: 15px;
+  border: none;
+  background-color: green;
+  color: #fff;
+  font-size: 16px;
+  margin-top: -50px;
+}
+
+.addAdminNewMember:active {
+  transform: scale(1.1);
+}
+
+.editApproveMember {
+  display: none;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.575);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  /* opacity: 0.3; */
+}
+.editApproveMemberContainer {
+  position: absolute;
+  left: 500px;
+  top: 90px;
+  border: solid black 1px;
+  padding: 10px;
+  background-color: rgb(233, 233, 233);
+  text-align: justify;
+  font-size: 16px;
+  width: 500px;
+  display: grid;
+  padding: 30px 50px;
+  border: none;
+  border-radius: 5px;
+  display: none;
+  opacity: 1;
+  /* visibility: hidden; */
+  /* z-index: 2; */
+  /* display: block; */
+  /* grid-template-areas:
+   "profileName" 
+   "profileContact"
+   ""; */
+}
+
+.editApproveMemberContainer input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.editApproveMemberContainer label {
+  margin-top: 10px;
+}
+
+.confirmUpdateApproveMembers {
+  text-align: center;
+  margin-top: 20px;
+  background-color: #009744;
+  color: #fff;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.confirmUpdateApproveMembers:hover {
+  background-color: #007e39;
+}
+.editMemberApproveInfo {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.editApproveMemberBtns {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "cancelApproveMember confirmUpdateApproveMembers";
+}
+
+.cancelApproveMember {
+  text-align: center;
+  margin-top: 20px;
+  background-color: rgb(201, 201, 201);
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.cancelApproveMember:hover {
+  background-color: rgb(177, 177, 177);
+}

@@ -1,0 +1,84 @@
+.AnnouncementBg {
+  width: 100%;
+}
+.memberAnnouncementList {
+  background-color: #36a9e1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 5px 150px 50px 150px;
+  grid-gap: 20px;
+  height: 100%;
+  text-align: center;
+}
+.announcementTitleHead {
+  background-color: #36a9e1;
+  text-align: center;
+  padding: 90px 0 30px 0px;
+  font-size: 30px;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 1px 1px 15px black;
+}
+.announcementRender {
+  background-color: #fff;
+  display: grid;
+  grid-template-areas:
+    "announcement_Img"
+    "announcement_Title"
+    "announcement_Date"
+    "announcement_Content"
+    "readMoreAnnouncement";
+  box-shadow: 1px 1px 10px black;
+}
+
+.announcement_Img {
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+.announcement_Title {
+  text-align: left;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 10px 20px 0px 20px;
+  height: 25px;
+  display: inline-block;
+  word-break: break-word;
+  overflow: hidden;
+}
+
+.announcement_Date {
+  text-align: left;
+  font-size: 15px;
+  margin: 10px 20px 0px 20px;
+  height: 25px;
+  display: inline-block;
+  word-break: break-word;
+  overflow: hidden;
+}
+
+.announcement_Content {
+  text-align: left;
+  font-size: 15px;
+  margin: 0px 20px 5px 20px;
+  height: 35px;
+  display: inline-block;
+  word-break: break-word;
+  overflow: hidden;
+}
+
+.readMoreAnnouncement {
+  text-decoration: none;
+  background-color: #00142a;
+  color: #fff;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 20px -15px 20px;
+}
+
+.readMoreAnnouncement:hover {
+  background-color: #009744;
+}

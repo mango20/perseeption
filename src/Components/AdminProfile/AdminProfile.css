@@ -1,0 +1,159 @@
+.adminProfile {
+  background-color: rgb(240, 240, 240);
+}
+.adminInfo {
+  margin-left: 200px;
+}
+
+.adminName,
+.adminContact,
+.adminAddress,
+.adminEmail,
+.adminPassword {
+  font-size: 30px;
+  margin-top: 25px;
+}
+.adminPassword {
+  margin-bottom: 100px;
+}
+.adminInfoBox {
+  background-color: rgb(255, 255, 255);
+  padding-top: 50px;
+  display: grid;
+  grid-template-columns: 0.3fr 1fr;
+  grid-template-areas: "adminDummyImage adminInfoTexts";
+  border-radius: 5px;
+}
+
+.updateInfo {
+  margin: auto;
+  width: 100%;
+  padding: 10px;
+  font-size: 30px;
+  border: none;
+  background-color: #009744;
+
+  color: #fff;
+}
+
+.updateInfo:hover {
+  background-color: #00142a;
+}
+
+.adminDummyImage {
+  /* background-color: rgb(197, 197, 197); */
+  /* color: #fff; */
+
+  margin-top: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+}
+
+.adminInfoTexts {
+  /* background-color: chartreuse; */
+
+  padding: 10px 50px 0px 50px;
+  border-left: 1px solid #00142a;
+  height: 90%;
+}
+
+#iconDummy {
+  font-size: 120px;
+  /* background: #ffc0c0; */
+  padding: 30px;
+  text-align: center;
+}
+.popupProfile {
+  display: none;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.575);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  /* opacity: 0.3; */
+}
+.popupProfileBox {
+  position: absolute;
+  left: 500px;
+  top: 130px;
+  border: solid black 1px;
+  padding: 10px;
+  background-color: rgb(233, 233, 233);
+  text-align: justify;
+  font-size: 16px;
+  width: 500px;
+  display: grid;
+  padding: 30px 50px;
+  border: none;
+  border-radius: 5px;
+  display: none;
+  opacity: 1;
+  /* visibility: hidden; */
+  /* z-index: 2; */
+  /* display: block; */
+  /* grid-template-areas:
+   "profileName" 
+   "profileContact"
+   ""; */
+}
+
+.popupProfileBox input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.popupProfileBox label {
+  margin-top: 10px;
+}
+
+.updateNowBtn {
+  text-align: center;
+  margin-top: 20px;
+  background-color: #009744;
+  color: #fff;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.updateNowBtn:hover {
+  background-color: #007e39;
+}
+.updateYourInfoTitle {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.btnProfile {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "cancelBtnProfile updateNowBtn";
+}
+
+.cancelBtnProfile {
+  text-align: center;
+  margin-top: 20px;
+  background-color: rgb(201, 201, 201);
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.cancelBtnProfile:hover {
+  background-color: rgb(177, 177, 177);
+}
