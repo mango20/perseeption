@@ -825,10 +825,6 @@ app.post("/login", (req, res) => {
   });
 });
 
-app.use(express.static(__dirname + "/public"));
-const router = require("./routes/index.js");
-app.use("/", router);
-
 const PORT = process.env.PORT || 3005;
 app.listen(PORT, () => {
   console.log(`running on port ${PORT}`); //localhost:3001
