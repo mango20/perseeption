@@ -1,1 +1,1 @@
-web: node db.js
+web: npm start

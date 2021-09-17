@@ -824,17 +824,8 @@ app.post("/login", (req, res) => {
     }
   });
 });
-const path = require("path");
 
-// const PORT = process.env.PORT || 3005;
-
-app.use(express.static(path.join(__dirname, "build")));
-
-app.get("/", function (req, res) {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
+const PORT = process.env.PORT || 3005;
+app.listen(PORT, () => {
+  console.log(`running on port ${PORT}`); //localhost:3001
 });
-
-app.listen(3005);
-// app.listen(PORT, () => {
-//   console.log(`running on port ${PORT}`); //localhost:3001
-// });
