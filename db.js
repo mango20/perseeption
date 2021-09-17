@@ -825,7 +825,7 @@ app.post("/login", (req, res) => {
   });
 });
 
-var PORT = process.env.PORT || 3005;
+const PORT = process.env.PORT || 3005;
 app.listen(PORT, () => {
-  console.log("running on port 3005"); //localhost:3001
+  console.log(`running on port ${PORT}`); //localhost:3001
 });
