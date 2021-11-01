@@ -44,7 +44,7 @@ const mysql = require("mysql");
 //   database: "perseeption_db",
 // });
 
-// app.use(express.static("public_html"));
+app.use(express.static("public"));
 const db = mysql.createConnection({
   host: "mysql.stackcp.com",
   port: 57230,
