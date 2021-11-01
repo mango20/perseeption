@@ -6,43 +6,117 @@ import { Link } from "react-router-dom";
 function AdminAnnouncement() {
   const [ANNOUNCEMENT_TITLE, setANNOUNCEMENT_TITLE] = useState("");
   const [ANNOUNCEMENT_CONTENT, setAnnouncement_Content] = useState("");
+  const [ANNOUNCEMENT_IMAGE, setANNOUNCEMENT_IMAGE] = useState("");
   const [ANNOUNCEMENT_LIST, setANNOUNCEMENT_LIST] = useState([]);
   const [NEW_ANNOUNCEMENT_CONTENT, setNewCONTENT] = useState("");
   const [NEW_ANNOUNCEMENT_TITLE, setNEW_EVENT_TITLE] = useState("");
   const [USER_ID, setUSER_ID] = useState("");
   // const [loginStatus, setLoginStatus] = useState("");
   // const [userList, setuserList] = useState([]);
+  const [announcementInformation, setAnnouncementInformation] = useState({
+    title: "",
+    content: "",
+    file: [],
+    filepreview: null,
+  });
+
+  const handleInputChange = (event) => {
+    setAnnouncementInformation({
+      ...announcementInformation,
+      file: event.target.files[0],
+      filepreview: URL.createObjectURL(event.target.files[0]),
+    });
+  };
+
+  const handleInputChange_ = (event) => {
+    setAnnouncementInformation({
+      ...announcementInformation,
+      title: document.getElementById("inputAnnouncementTitle").value,
+      content: document.getElementById("inputAnnouncementContent").value,
+    });
+  };
+
+  const [isSucces, setSuccess] = useState(null);
+
+  const submit = async () => {
+    const formdata = new FormData();
+    formdata.append("image", announcementInformation.file);
+    console.log(announcementInformation.file);
+    formdata.append("title", announcementInformation.title);
+    formdata.append("content", announcementInformation.content);
+    if (
+      announcementInformation.content === "" ||
+      announcementInformation.file.length === 0 ||
+      announcementInformation.content === ""
+    ) {
+      let timerId = setInterval(
+        () =>
+          (document.getElementById("titleAnnouncementMsg").innerHTML =
+            "Please fill out form completely!"),
+        0
+      );
+
+      // Timeout
+      setTimeout(() => {
+        clearInterval(timerId);
+        document.getElementById("titleAnnouncementMsg").innerHTML = "";
+      }, 3000);
+      return false;
+    } else
+      Axios.post("http://localhost:57230/imageupload", formdata, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+    document.getElementById("messageAnnouncementPopUpouter").style.display =
+      "block";
+    document.getElementById("messageAnnouncement_Content").style.display =
+      "block";
+
+    setTimeout(function () {
+      document.getElementById("messageAnnouncementPopUpouter").style.display =
+        "none";
+      document.getElementById("messageAnnouncement_Content").style.display =
+        "none";
+    }, 3000);
+    Axios.get("http://localhost:57230/api/getAnnouncement").then((response) => {
+      setANNOUNCEMENT_LIST(response.data);
+    });
+  };
+
   Axios.defaults.withCredentials = true;
 
-  useEffect(() => {
-    Axios.get("http://localhost:3005/login").then((response) => {
-      console.log(response.data.loggedIn);
-      if (response.data.loggedIn === true) {
-        setUSER_ID(response.data.user[0].USER_ID);
-      } else {
-        window.location = "/Login";
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   Axios.get("http://localhost:57230/api/login").then((response) => {
+  //     console.log(response.data.loggedIn);
+  //     if (response.data.loggedIn === true) {
+  //       setUSER_ID(response.data.user[0].USER_ID);
+  //     } else {
+  //       window.location = "/Login";
+  //     }
+  //   });
+  // }, []);
 
   // Render
   useEffect(() => {
-    Axios.get("http://localhost:3005/api/getAnnouncement").then((response) => {
+    Axios.get("http://localhost:57230/api/getAnnouncement").then((response) => {
       setANNOUNCEMENT_LIST(response.data);
+      console.log(response.data);
     });
   }, []);
 
   // useEffect(() => {
-  //   Axios.get("http://localhost:3005/api/getUser").then((response) => {
+  //   Axios.get("http://localhost:57230/api/getUser").then((response) => {
   //     setuserList(response.data);
   //   });
   // }, []);
 
   //Get User ID
   useEffect(() => {
-    Axios.get("http://localhost:3005/login").then((response) => {
+    Axios.get("http://localhost:57230/login").then((response) => {
+      console.log(response.data.loggedIn);
       if (response.data.loggedIn === true) {
-        setUSER_ID(response.data.user[0].USER_ID);
+        setUSERNAME_(response.data.user);
+      } else {
+        window.location = "/Login";
       }
     });
   }, []);
@@ -76,7 +150,7 @@ function AdminAnnouncement() {
 
       // Insert Announcement
     } else {
-      Axios.post("http://localhost:3005/api/insertAnnouncement", {
+      Axios.post("http://localhost:57230/api/insertAnnouncement", {
         ANNOUNCEMENT_TITLE: ANNOUNCEMENT_TITLE,
         ANNOUNCEMENT_CONTENT: ANNOUNCEMENT_CONTENT,
         USER_ID: USER_ID,
@@ -98,7 +172,7 @@ function AdminAnnouncement() {
       document.getElementById("inputAnnouncementContent").value = "";
       setANNOUNCEMENT_TITLE("");
       setAnnouncement_Content("");
-      Axios.get("http://localhost:3005/api/getAnnouncement").then(
+      Axios.get("http://localhost:57230/api/getAnnouncement").then(
         (response) => {
           setANNOUNCEMENT_LIST(response.data);
         }
@@ -108,7 +182,7 @@ function AdminAnnouncement() {
 
   // Delete Announcement
   const deletAnnouncementButton = (ANNOUNCEMENT_ID) => {
-    Axios.delete(`http://localhost:3005/api/delete/${ANNOUNCEMENT_ID}`).then(
+    Axios.delete(`http://localhost:57230/api/delete/${ANNOUNCEMENT_ID}`).then(
       (response) => {
         console.log(response);
         setANNOUNCEMENT_LIST(
@@ -116,7 +190,7 @@ function AdminAnnouncement() {
             return val.ANNOUNCEMENT_ID !== ANNOUNCEMENT_ID; // Filter/remove if it not equals to id
           })
         );
-        Axios.get("http://localhost:3005/api/getAnnouncement").then(
+        Axios.get("http://localhost:57230/api/getAnnouncement").then(
           (response) => {
             setANNOUNCEMENT_LIST(response.data);
           }
@@ -127,7 +201,7 @@ function AdminAnnouncement() {
 
   // Update Title
   const updateAnnouncementTitle = (ANNOUNCEMENT_ID) => {
-    Axios.put("http://localhost:3005/api/updateAnnouncementTitle", {
+    Axios.put("http://localhost:57230/api/updateAnnouncementTitle", {
       ANNOUNCEMENT_ID: ANNOUNCEMENT_ID,
       ANNOUNCEMENT_TITLE: NEW_ANNOUNCEMENT_TITLE,
     }).then((response) => {
@@ -142,7 +216,7 @@ function AdminAnnouncement() {
         })
       );
 
-      Axios.get("http://localhost:3005/api/getAnnouncement").then(
+      Axios.get("http://localhost:57230/api/getAnnouncement").then(
         (response) => {
           setANNOUNCEMENT_LIST(response.data);
         }
@@ -152,7 +226,7 @@ function AdminAnnouncement() {
 
   // Update Content
   const updateAnnouncementContent = (ANNOUNCEMENT_ID) => {
-    Axios.put("http://localhost:3005/api/updateAnnouncementContent", {
+    Axios.put("http://localhost:57230/api/updateAnnouncementContent", {
       ANNOUNCEMENT_ID: ANNOUNCEMENT_ID,
       ANNOUNCEMENT_CONTENT: NEW_ANNOUNCEMENT_CONTENT,
     }).then((response) => {
@@ -170,13 +244,33 @@ function AdminAnnouncement() {
       //   setNewReview("");
       //   document.getElementById("updateAnnouncementContentID").value = "";
 
-      Axios.get("http://localhost:3005/api/getAnnouncement").then(
+      Axios.get("http://localhost:57230/api/getAnnouncement").then(
         (response) => {
           setANNOUNCEMENT_LIST(response.data);
         }
       );
     });
   };
+
+  const logout = () => {
+    Axios.get("http://localhost:57230/logout").then((response) => {
+      console.log(response.data);
+      if (response.data.loggedIn === false) {
+        alert("logout");
+        window.location = "/Login";
+      } else {
+        alert("not logout");
+      }
+    });
+  };
+
+  const [USERNAME_, setUSERNAME_] = useState([]);
+  // useEffect(() => {
+  //   Axios.get("http://localhost:57230/login").then((response) => {
+  //     console.log(response.data);
+  //     setUSERNAME_(response.data.user);
+  //   });
+  // }, []);
 
   return (
     <div className="EventsAdminBg">
@@ -186,7 +280,13 @@ function AdminAnnouncement() {
         </div>
         <Link to="/AdminProfile" className="profileIcon">
           <img src="/images/events1.jpg" alt="img" className="profilePicture" />
-          <p className="profileNameHeader">Charmaine</p>
+          {USERNAME_.map((val, key) => {
+            return (
+              <p key={key} className="profileNameHeader">
+                {val.USERNAME}
+              </p>
+            );
+          })}
         </Link>
       </div>
       <div
@@ -228,9 +328,9 @@ function AdminAnnouncement() {
             <i className="fa fa-user"></i>Profile
           </Link>
           <div className="line"></div>
-          <Link to="/" className="logout_Admin">
+          <p className="logout_Admin" onClick={logout}>
             <i className="fa fa-sign-out"></i> Logout
-          </Link>
+          </p>
         </div>
         <div className="form1">
           <label className="announcementTitleTxt">Title </label>
@@ -239,7 +339,8 @@ function AdminAnnouncement() {
             placeholder="Enter Title"
             id="inputAnnouncementTitle"
             className="inputAnnTitle"
-            onChange={(e) => setANNOUNCEMENT_TITLE(e.target.value)}
+            onChange={handleInputChange_}
+            // onChange={(e) => setANNOUNCEMENT_TITLE(e.target.value)}
           />
 
           <label className="contentTxtAnnouncement">Content</label>
@@ -247,25 +348,42 @@ function AdminAnnouncement() {
             placeholder="Enter Content"
             id="inputAnnouncementContent"
             className="announcementAdminContent"
-            onChange={(e) => setAnnouncement_Content(e.target.value)}
+            onChange={handleInputChange_}
+            // onChange={(e) => setAnnouncement_Content(e.target.value)}
           />
           <div className="containerBtnAnnouncement">
-            <input type="file" className="fileBtnAnnouncement" />
-            <button
+            {/* <input type="file" className="fileBtnAnnouncement" /> */}
+            <input
+              type="file"
+              className="fileBtnAnnouncement"
+              name="upload_file"
+              onChange={handleInputChange}
+            />
+            {/* <button
               onClick={createAnnouncement}
               className="postAnnouncementBtn"
             >
+              Post Event
+            </button> */}
+            <button onClick={() => submit()} className="postAnnouncementBtn">
               Post Event
             </button>
           </div>
           <div id="titleAnnouncementMsg"></div>
         </div>
         <div className="announcementListContainer">
+          {/* {announcementInformation.filepreview !== null ? (
+            <img
+              className="previewimg"
+              src={announcementInformation.filepreview}
+              alt="UploadImage"
+            />
+          ) : null} */}
           {ANNOUNCEMENT_LIST.map((val, key) => {
             return (
               <div key={key} className="announcementAdminRender">
                 <img
-                  src="/images/events1.jpg"
+                  src={val.ANNOUNCEMENT_IMAGE}
                   alt="img"
                   className="announcementDummyIng"
                 />

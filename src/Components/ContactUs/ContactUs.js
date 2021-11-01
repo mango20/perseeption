@@ -14,7 +14,7 @@ function ContactUs() {
   // const [newTitle, setNewTitle] = useState("");
 
   // useEffect(() => {
-  //   Axios.get("http://localhost:3005/login").then((response) => {
+  //   Axios.get("http://localhost:57230/login").then((response) => {
   //     console.log(response.data.loggedIn);
   //     if (response.data.loggedIn === true) {
   //       setUSER_ID(response.data.user[0].USER_ID);
@@ -34,7 +34,7 @@ function ContactUs() {
   };
 
   const logout = () => {
-    Axios.get("http://localhost:3005/logout").then((response) => {});
+    Axios.get("http://localhost:57230/logout").then((response) => {});
     localStorage.clear();
     document.getElementById("floatBtn").style.display = "block";
     document.getElementById("LoginHeader").style.display = "block";
@@ -44,33 +44,51 @@ function ContactUs() {
   };
 
   const insertContactUsMsg = () => {
-    const contactNameInput_err = document.getElementById("_contactUsName");
-    const contactNameInput = document.getElementById("_contactUsName").value;
-    const contactNumberInput =
-      document.getElementById("_contactUsNumber").value;
-    const contactEmailInput = document.getElementById("_contactUsEmail").value;
-    const contactMessageInput =
+    const _contactUsName = document.getElementById("_contactUsName").value;
+    const _contactUsNumber = document.getElementById("_contactUsNumber").value;
+    const _contactUsEmail = document.getElementById("_contactUsEmail").value;
+    const _contactUsMessage =
       document.getElementById("_contactUsMessage").value;
 
-    if (contactNameInput === "") {
-      contactNameInput_err.style.borderColor = "red";
+    if (
+      _contactUsName === "" ||
+      _contactUsNumber === "" ||
+      _contactUsEmail === "" ||
+      _contactUsMessage === ""
+    ) {
+      document.getElementById("popUpGetMsgCont").style.display = "block";
+      document.getElementById("popUpGetMsgInCont").style.display = "block";
+      setTimeout(function () {
+        document.getElementById("popUpGetMsgCont").style.display = "none";
+        document.getElementById("popUpGetMsgInCont").style.display = "none";
+      }, 3000);
     } else {
-      contactNameInput_err.style.borderColor = "green";
-    }
+      Axios.post("http://localhost:57230/insertContactUsMsg", {
+        contact_name: contact_name,
+        contact_number: contact_number,
+        contact_email: contact_email,
+        contact_message: contact_message,
+        // USER_ID: USER_ID,
+      });
+      const _contactUsName = (document.getElementById("_contactUsName").value =
+        "");
+      const _contactUsNumber = (document.getElementById(
+        "_contactUsNumber"
+      ).value = "");
+      const _contactUsEmail = (document.getElementById(
+        "_contactUsEmail"
+      ).value = "");
+      const _contactUsMessage = (document.getElementById(
+        "_contactUsMessage"
+      ).value = "");
 
-    if (contactNumberInput === "") {
-      const contactNumberInput_err =
-        document.getElementById("_contactUsNumber");
-      contactNumberInput_err.style.borderColor = "red";
-    } else {
+      document.getElementById("contactUsSent").style.display = "block";
+      // document.getElementById("popUpGetMsgInCont").style.display = "block";
+      setTimeout(function () {
+        document.getElementById("contactUsSent").style.display = "none";
+        // document.getElementById("popUpGetMsgInCont").style.display = "none";
+      }, 3000);
     }
-    Axios.post("http://localhost:3005/insertContactUsMsg", {
-      contact_name: contact_name,
-      contact_number: contact_number,
-      contact_email: contact_email,
-      contact_message: contact_message,
-      // USER_ID: USER_ID,
-    });
   };
 
   return (
@@ -119,6 +137,19 @@ function ContactUs() {
                 {/* <a href="#">Sign In other Account</a> */}
               </div>
             </div>
+          </div>
+        </div>
+        <div id="popUpGetMsgCont">
+          <div id="popUpGetMsgInCont">
+            <h2>Message</h2>
+            <h1>Please fill out all field!</h1>
+          </div>
+        </div>
+        <div id="contactUsSent">
+          <div id="popUpGetMsgInCont__">
+            <h2>Message</h2>
+            <i className="fa fa-check-circle"></i>
+            <h1>Your message has been sent</h1>
           </div>
         </div>
         <h1 className="eventTitle_Head">Contact Us</h1>

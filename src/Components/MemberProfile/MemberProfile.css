@@ -1,0 +1,290 @@
+.accData {
+  /* background-color: yellow; */
+  padding: 0px 0px 10px 0px;
+  margin-bottom: 20px;
+  margin-top: 110px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgb(211, 211, 211);
+}
+
+.accData h2 {
+  background-color: forestgreen;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: #fff;
+  /* margin-top: 5px;
+  font-size: 18px; */
+}
+
+.accData p {
+  /* background-color: yellow; */
+  /* padding: 10px; */
+  margin-top: 5px;
+  margin-left: 10px;
+  font-size: 18px;
+}
+
+.fathersData_ {
+  padding: 0px 0px 10px 0px;
+  margin-bottom: 20px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgb(211, 211, 211);
+}
+
+.fathersData_ h2 {
+  background-color: dodgerblue;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: #fff;
+  /* margin-top: 5px;
+    font-size: 18px; */
+}
+
+.fathersData_ p {
+  /* background-color: yellow; */
+  /* padding: 10px; */
+  margin-top: 5px;
+  margin-left: 10px;
+  font-size: 18px;
+}
+
+.mothersData_ {
+  padding: 0px 0px 10px 0px;
+  margin-bottom: 20px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgb(211, 211, 211);
+}
+
+.mothersData_ h2 {
+  background-color: hotpink;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: #fff;
+  /* margin-top: 5px;
+      font-size: 18px; */
+}
+
+.mothersData_ p {
+  /* background-color: yellow; */
+  /* padding: 10px; */
+  margin-top: 5px;
+  margin-left: 10px;
+  font-size: 18px;
+}
+
+.guardianssData_ {
+  padding: 0px 0px 10px 0px;
+  margin-bottom: 20px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgb(211, 211, 211);
+}
+
+.guardianssData_ h2 {
+  background-color: teal;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: #fff;
+  /* margin-top: 5px;
+        font-size: 18px; */
+}
+
+.guardianssData_ p {
+  /* background-color: yellow; */
+  /* padding: 10px; */
+  margin-top: 5px;
+  margin-left: 10px;
+  font-size: 18px;
+}
+
+.monthlyIncomeData_ {
+  padding: 0px 0px 10px 0px;
+  margin-bottom: 20px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgb(211, 211, 211);
+}
+
+.monthlyIncomeData_ h2 {
+  background-color: rgb(136, 116, 0);
+  padding: 10px;
+  margin-bottom: 10px;
+  color: #fff;
+  /* margin-top: 5px;
+          font-size: 18px; */
+}
+
+.monthlyIncomeData_ p {
+  /* background-color: yellow; */
+  /* padding: 10px; */
+  margin-top: 5px;
+  margin-left: 10px;
+  font-size: 18px;
+}
+
+.siblingsData_ {
+  padding: 0px 0px 10px 0px;
+  margin-bottom: 20px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgb(211, 211, 211);
+}
+
+.siblingsData_ h2 {
+  background-color: orchid;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: #fff;
+  /* margin-top: 5px;
+            font-size: 18px; */
+}
+
+.siblingsData_ p {
+  /* background-color: yellow; */
+  /* padding: 10px; */
+  margin-top: 5px;
+  margin-left: 10px;
+  font-size: 18px;
+}
+
+.addressData_ {
+  padding: 0px 0px 10px 0px;
+  margin-bottom: 20px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgb(211, 211, 211);
+}
+
+.addressData_ h2 {
+  background-color: #ff9500;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: #fff;
+  /* margin-top: 5px;
+              font-size: 18px; */
+}
+
+.addressData_ p {
+  /* background-color: yellow; */
+  /* padding: 10px; */
+  margin-top: 5px;
+  margin-left: 10px;
+  font-size: 18px;
+}
+
+.childsData_ {
+  padding: 0px 0px 10px 0px;
+  margin-bottom: 20px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgb(211, 211, 211);
+}
+
+.childsData_ h2 {
+  background-color: rgb(91, 0, 196);
+  padding: 10px;
+  margin-bottom: 10px;
+  color: #fff;
+  /* margin-top: 5px;
+              font-size: 18px; */
+}
+
+.childsData_ p {
+  /* background-color: yellow; */
+  /* padding: 10px; */
+  margin-top: 5px;
+  margin-left: 10px;
+  font-size: 18px;
+}
+.cNeedData_ {
+  padding: 0px 0px 15px 0px;
+  margin-bottom: 20px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgb(211, 211, 211);
+  display: grid;
+  grid-template-areas:
+    "cNeedData_T cNeedData_T cNeedData_T"
+    "special_ lToolsData_ tServiceData_";
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.cNeedData_T {
+  grid-area: cNeedData_T;
+}
+
+.special_ {
+  grid-area: special_;
+}
+
+.lToolsData_ {
+  grid-area: lToolsData_;
+}
+
+.tServiceData_ {
+  grid-area: tServiceData_;
+}
+
+.cNeedData_ h2 {
+  background-color: rgb(255, 0, 119);
+  padding: 10px;
+  margin-bottom: 10px;
+  color: #fff;
+  /* margin-top: 5px;
+              font-size: 18px; */
+}
+
+.cNeedData_ p {
+  /* background-color: yellow; */
+  /* padding: 10px; */
+  margin-top: 5px;
+  margin-left: 10px;
+  font-size: 18px;
+}
+
+.cNeedData_ h4 {
+  /* background-color: yellow; */
+  /* padding: 10px; */
+  margin-bottom: 15px;
+  margin-top: 5px;
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.memproCont a {
+  text-decoration: none;
+}
+
+.backMemberProfile {
+  background-color: #00142a;
+  padding: 10px 30px;
+  /* width: 50px; */
+  float: right;
+  color: #fff;
+  border-radius: 5px;
+  margin-top: 20px;
+  /* align-items: center; */
+}
+
+.titleMemPro__ {
+  float: left;
+  display: grid;
+  /* background-color: teal; */
+  grid-template-areas: "logPro profileTitle_";
+}
+
+.profileTitle_ {
+  grid-area: profileTitle_;
+  /* float: left; */
+  padding-top: 30px;
+  padding-left: 10px;
+}
+
+#logPro {
+  grid-area: logPro;
+  /* float: left; */
+  width: 150px;
+}

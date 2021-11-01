@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import "./MainPage.css";
-import { Link } from "react-router-dom";
-import { signedCookies } from "cookie-parser";
+import { Link, useHistory } from "react-router-dom";
+
 // import cookieParser from "cookie-parser";
 
 function MainPage() {
   const [MAIN_EVENT, setMAIN_EVENT] = useState([]);
   Axios.defaults.withCredentials = true;
   const [USER_ID, setUSER_ID] = useState("");
+  const [USERNAME, setUSERNAME] = useState([]);
+  Axios.defaults.withCredentials = true;
   // const [loginStatus, setLoginStatus] = useState(false);
   // useEffect(() => {
-  //   Axios.get("http://localhost:3005/logout").then((response) => {
+  //   Axios.get("http://localhost:57230/logout").then((response) => {
   //     console.log(response.data.loggedIn);
   //     if (response.data.loggedIn === true) {
   //       document.getElementById("loggedInImg").style.display = "none";
@@ -22,10 +24,14 @@ function MainPage() {
   // }, []);
 
   useEffect(() => {
-    Axios.get("http://localhost:3005/login").then((response) => {
+    Axios.defaults.withCredentials = true;
+    Axios.get("http://localhost:57230/login").then((response) => {
+      Axios.defaults.withCredentials = true;
       console.log(response.data.loggedIn);
+      console.log(response.data.user);
       if (response.data.loggedIn === true) {
         setUSER_ID(response.data.user[0].USER_ID);
+        // setUSERNAME(response.data);
         document.getElementById("floatBtn").style.display = "none";
         document.getElementById("LoginHeader").style.display = "none";
         document.getElementById("loggedInImg").style.display = "block";
@@ -40,7 +46,7 @@ function MainPage() {
 
   // Render
   useEffect(() => {
-    Axios.get("http://localhost:3005/api/getMainEvent").then((response) => {
+    Axios.get("http://localhost:57230/api/getMainEvent").then((response) => {
       setMAIN_EVENT(response.data);
     });
   }, []);
@@ -53,17 +59,40 @@ function MainPage() {
     }
   };
 
+  // const logout = () => {
+  //   Axios.get("http://localhost:57230/logout").then((response) => {
+  //     // alert("sdf");
+  //     window.location.reload();
+  //     console.log(response.data);
+  //   });
+  //   localStorage.clear();
+  //   document.getElementById("floatBtn").style.display = "block";
+  //   document.getElementById("LoginHeader").style.display = "block";
+  //   document.getElementById("loggedInImg").style.display = "none";
+  //   document.getElementById("dropdown-content").style.display = "none";
+  // };
+
+  const history = useHistory();
   const logout = () => {
-    Axios.get("http://localhost:3005/logout").then((response) => {
-      // alert("sdf");
-      window.location.reload();
+    Axios.get("http://localhost:57230/logout").then((response) => {
+      console.log(response.data);
+      if (response.data.loggedIn === false) {
+        alert("logout");
+        // window.location = "/Login";
+        history.push("/Login");
+      } else {
+        alert("not logout");
+      }
     });
-    localStorage.clear();
-    document.getElementById("floatBtn").style.display = "block";
-    document.getElementById("LoginHeader").style.display = "block";
-    document.getElementById("loggedInImg").style.display = "none";
-    document.getElementById("dropdown-content").style.display = "none";
+
+    // document.getElementById("floatBtn").style.display = "block";
+    // document.getElementById("LoginHeader").style.display = "block";
+    // document.getElementById("loggedInImg").style.display = "none";
+    // document.getElementById("dropdown-content").style.display = "none";
+    // window.location.reload();
+    // window.location = "/Login";
   };
+
   return (
     <>
       <div className="MainBg">
@@ -76,8 +105,9 @@ function MainPage() {
           </div>
           <div className="headerText">
             <Link className="homeHeader" to="/">
-              Home
+              Home {USER_ID}
             </Link>
+
             <Link className="announcementHeader" to="/MemberAnnouncement">
               Announcement
             </Link>
@@ -132,15 +162,11 @@ function MainPage() {
           {MAIN_EVENT.map((val, key) => {
             return (
               <div key={key} className="eventMain_List">
-                <img
-                  src="/images/events1.jpg"
-                  alt="img"
-                  className="eventImgMain"
-                />
+                <img src={val.EVENT_IMAGE} alt="img" className="eventImgMain" />
                 <p className="eventTitleMain">{val.EVENT_TITLE}</p>
                 <p className="eventDateMain">{val.EVENT_DATE}</p>
                 <p className="eventContentMain">{val.EVENT_CONTENT}</p>
-                <Link to="/ReadMoreEvent" className="readMoreMain">
+                <Link to="/MemberEvents" className="readMoreMain">
                   Read More
                 </Link>
               </div>
@@ -171,7 +197,7 @@ function MainPage() {
           </div>
           <div className="fbLogo">
             <a
-              href="https://www.facebook.com/PAVIC.ph"
+              href="https://db.skidax.com/www.facebook.com/PAVIC.ph"
               className="fa fa-facebook"
             >
               {}

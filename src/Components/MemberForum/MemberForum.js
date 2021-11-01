@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 function MemberForum() {
   const [FORUM_TITLE, setFORUM_TITLE] = useState("");
+  const [ADMIN_NAME, setADMIN_NAME] = useState("");
   const [FORUM_CONTENT, setFORUM_CONTENT] = useState("");
   const [FORUM_ID, setFORUM_ID] = useState("");
   const [FORUM_LIST, setFORUM_LIST] = useState([]);
@@ -17,9 +18,17 @@ function MemberForum() {
   // const [USER_ID, setUSER_ID] = useState("");
 
   useEffect(() => {
-    Axios.get("http://localhost:3005/login").then((response) => {
+    Axios.get("http://localhost:57230/login").then((response) => {
       console.log(response.data.loggedIn);
+      console.log(response.data);
       if (response.data.loggedIn === true) {
+        const p = response.data.user[0].USER_TYPE;
+        if (p === "Admin") {
+          document.getElementById("portalDash").style.display = "block";
+          document.getElementById("profileGo").style.display = "none";
+        } else {
+          document.getElementById("portalDash").style.display = "none";
+        }
         setUSER_ID(response.data.user[0].USER_ID);
         document.getElementById("floatBtn").style.display = "none";
         document.getElementById("LoginHeader").style.display = "none";
@@ -37,7 +46,7 @@ function MemberForum() {
   };
 
   const logout = () => {
-    Axios.get("http://localhost:3005/logout").then((response) => {
+    Axios.get("http://localhost:57230/logout").then((response) => {
       // alert("sdf");
       window.location.reload();
     });
@@ -49,7 +58,7 @@ function MemberForum() {
     // window.location.reload();
   };
   // useEffect(() => {
-  //   Axios.get("http://localhost:3005/login").then((response) => {
+  //   Axios.get("http://localhost:57230/login").then((response) => {
   //     console.log(response.data.loggedIn);
   //     if (response.data.loggedIn === true) {
   //       setUSER_ID(response.data.user[0].USER_ID);
@@ -60,29 +69,32 @@ function MemberForum() {
   // }, []);
 
   useEffect(() => {
-    Axios.get("http://localhost:3005/api/getForumReply").then((response) => {
-      setFORUM_REPLY_LIST(response.data);
-    });
+    Axios.get("http://localhost:57230/api/getForumReply_/${FORUM_ID}").then(
+      (response) => {
+        setFORUM_REPLY_LIST(response.data);
+        console.log(response.data);
+      }
+    );
   }, []);
 
   useEffect(() => {
-    Axios.get("http://localhost:3005/api/getForumTop").then((response) => {
+    Axios.get("http://localhost:57230/api/getForumTop").then((response) => {
       setFORUM_LIST_TOP(response.data);
     });
   }, []);
 
   useEffect(() => {
-    Axios.get("http://localhost:3005/api/getForum").then((response) => {
+    Axios.get(`http://localhost:57230/api/getForum`).then((response) => {
       setFORUM_LIST(response.data);
     });
   }, []);
 
   const deletForumQuestion = (FORUM_ID) => {
-    Axios.get("http://localhost:3005/login").then((response) => {
+    Axios.get("http://localhost:57230/login").then((response) => {
       console.log(response.data.loggedIn);
       if (response.data.loggedIn === true) {
         Axios.delete(
-          `http://localhost:3005/api/deleteQuestion/${FORUM_ID}`
+          `http://localhost:57230/api/deleteQuestion/${FORUM_ID}`
         ).then((response) => {
           console.log(response);
           setFORUM_LIST(
@@ -91,8 +103,9 @@ function MemberForum() {
             })
           );
 
-          Axios.get("http://localhost:3005/api/getForum").then((response) => {
+          Axios.get("http://localhost:57230/api/getForum").then((response) => {
             setFORUM_LIST(response.data);
+            console.log(response.data);
           });
           window.location.reload();
         });
@@ -104,26 +117,38 @@ function MemberForum() {
     });
   };
 
-  const createForumReply = () => {
-    Axios.get("http://localhost:3005/login").then((response) => {
+  const createForumReply = (FORUM_ID) => {
+    console.log(FORUM_ID);
+
+    Axios.get("http://localhost:57230/login").then((response) => {
       console.log(response.data.loggedIn);
       if (response.data.loggedIn === true) {
+        const USER_ID_ = response.data.user[0].USER_ID;
+        const ADMIN_NAME = response.data.user[0].ADMIN_NAME;
+        console.log(USER_ID_);
+        console.log(ADMIN_NAME);
         setUSER_ID(response.data.user[0].USER_ID);
-        // Insert Announcement
-        Axios.post("http://localhost:3005/insertForumReply", {
+        // document.getElementById("inputReplyForum").value = null;
+        Axios.post(`http://localhost:57230/insertForumReply/${FORUM_ID}`, {
           FORUM_REPLY_CONTENT: FORUM_REPLY_CONTENT,
-          // FORUM_ID: FORUM_ID,
+          FORUM_ID: FORUM_ID,
+          USER_ID: USER_ID_,
         });
+        console.log(FORUM_REPLY_CONTENT);
+        console.log(FORUM_ID);
+        console.log(USER_ID_);
 
-        Axios.get("http://localhost:3005/api/getForumReply").then(
+        Axios.get(`http://localhost:57230/api/getForumReply_/${FORUM_ID}`).then(
           (response) => {
+            console.log(response.data);
+
             setFORUM_REPLY_LIST(response.data);
           }
         );
 
-        Axios.get("http://localhost:3005/api/getForumTop").then((response) => {
-          setFORUM_REPLY_LIST(response.data);
-        });
+        // Axios.get("http://localhost:57230/api/getForumTop").then((response) => {
+        //   setFORUM_REPLY_LIST(response.data);
+        // });
       } else {
         document.getElementById("floatYouNeedLoginBg").style.display = "block";
         document.getElementById("floatYouNeedContainer").style.display =
@@ -134,30 +159,35 @@ function MemberForum() {
 
   const createForum = () => {
     // Insert Announcement
-
-    Axios.post("http://localhost:3005/insertForum", {
-      FORUM_ID: FORUM_ID,
-      FORUM_TITLE: FORUM_TITLE,
-      FORUM_CONTENT: FORUM_CONTENT,
+    Axios.get("http://localhost:57230/login").then((response) => {
+      const USER_ID_ = response.data.user[0].USER_ID;
+      console.log(USER_ID_);
+      Axios.post("http://localhost:57230/insertForum", {
+        USER_ID_: USER_ID_,
+        FORUM_ID: FORUM_ID,
+        FORUM_TITLE: FORUM_TITLE,
+        FORUM_CONTENT: FORUM_CONTENT,
+      });
+      console.log(USER_ID_);
+      Axios.get("http://localhost:57230/api/getForum").then((response) => {
+        setFORUM_LIST(response.data);
+        console.log(response.data[0].FORUM_ID);
+      });
+      // setFORUM_TITLE(" sd");
+      // document.getElementById("floatForumAskQuestionBg").style.display = "none";
+      document.getElementById("floatForumAskQuestionBg").style.display = "none";
+      document.getElementById("floatForumAskQuestion").style.display = "none";
+      // window.location.reload();
+      // var form = document.getElementById("inputAnnouncementTitle");
+      // form.target.reset();
+      // document.getElementById("inputForumContentQuestion").innerHTML = "";
     });
-
-    Axios.get("http://localhost:3005/api/getForum").then((response) => {
-      setFORUM_LIST(response.data);
-      console.log(response.data[0].FORUM_ID);
-    });
-    // setFORUM_TITLE(" sd");
-    // document.getElementById("floatForumAskQuestionBg").style.display = "none";
-    document.getElementById("floatForumAskQuestionBg").style.display = "none";
-    document.getElementById("floatForumAskQuestion").style.display = "none";
-    // window.location.reload();
-    // var form = document.getElementById("inputAnnouncementTitle");
-    // form.target.reset();
-    // document.getElementById("inputForumContentQuestion").innerHTML = "";
   };
 
   const hidePopupForumAsk = () => {
     document.getElementById("floatForumAskQuestionBg").style.display = "none";
     document.getElementById("floatForumAskQuestion").style.display = "none";
+    document.getElementById("inputReplyForum").value = "";
   };
 
   const hidefloatLogin = () => {
@@ -166,7 +196,7 @@ function MemberForum() {
   };
 
   const askPopup = () => {
-    Axios.get("http://localhost:3005/login").then((response) => {
+    Axios.get("http://localhost:57230/login").then((response) => {
       console.log(response.data.loggedIn);
       if (response.data.loggedIn === true) {
         setUSER_ID(response.data.user[0].USER_ID);
@@ -182,8 +212,9 @@ function MemberForum() {
     });
   };
 
-  const clickInput = () => {
-    Axios.get("http://localhost:3005/login").then((response) => {
+  const clickInput = (FORUM_ID) => {
+    console.log(FORUM_ID);
+    Axios.get("http://localhost:57230/login").then((response) => {
       console.log(response.data.loggedIn);
       if (response.data.loggedIn === false) {
         document.getElementById("floatYouNeedLoginBg").style.display = "block";
@@ -193,14 +224,30 @@ function MemberForum() {
     });
   };
 
+  const loadComment = (FORUM_ID) => {
+    console.log(FORUM_ID);
+    Axios.get(`http://localhost:57230/api/getForumReply_/${FORUM_ID}`).then(
+      (response) => {
+        console.log(response);
+        setFORUM_REPLY_LIST(response.data);
+        //   .then(
+        //   (response) => {
+        //     console.log(response.data);
+
+        //     setFORUM_REPLY_LIST(response.data);
+        //   }
+      }
+    );
+  };
+
   // useEffect(() => {
-  //   Axios.get("http://localhost:3005/getForumReply").then((response) => {
+  //   Axios.get("http://localhost:57230/getForumReply").then((response) => {
   //     FORUM_REPLY_LIST(response.data);
   //   });
   // }, []);
 
   // useEffect(() => {
-  //   Axios.get("http://localhost:3005/getForum").then((response) => {
+  //   Axios.get("http://localhost:57230/getForum").then((response) => {
   //     FORUM_LIST(response.data);
   //   });
   // }, []);
@@ -244,7 +291,12 @@ function MemberForum() {
               onClick={popup}
             />
             <div className="dropdown-content" id="dropdown-content">
-              <Link to="/MemberProfile">Profile</Link>
+              <Link to="/MemberProfile" id="profileGo">
+                Profile
+              </Link>
+              <Link to="/AdminDashboard" id="portalDash">
+                Dashboard
+              </Link>
               <p onClick={logout}>Logout</p>
               {/* <a href="#">Sign In other Account</a> */}
             </div>
@@ -329,6 +381,20 @@ function MemberForum() {
               />
             </div>
           </div>
+          <div className="repliesForum_" id="repliesList">
+            <p className="replySecTitle">Reply Section</p>
+            <div className="scrollReplies">
+              {FORUM_REPLY_LIST.map((val, key) => {
+                return (
+                  <div key={key} className="repliesList">
+                    <p className="nameReply">{val.ADMIN_NAME}</p>
+
+                    <p className="contentReply">{val.FORUM_REPLY_CONTENT}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
           <div className="forumQuestionList">
             <div className="scrollForum">
               {FORUM_LIST.map((val, key) => {
@@ -336,11 +402,11 @@ function MemberForum() {
                   <div key={key} className="questionBox">
                     <div className="forumQuestionHead">
                       <img
-                        src="/images/events1.jpg"
+                        src="/images/avatar.png"
                         alt="img"
                         className="iconForum"
                       />
-                      <p className="iconForumName">Charmaine Manga</p>
+                      <p className="iconForumName">{val.ADMIN_NAME}</p>
                       <i
                         className="fa fa-trash"
                         id="bullets"
@@ -354,30 +420,30 @@ function MemberForum() {
                       <p className="titleQuestion">{val.FORUM_TITLE}</p>
                       <p className="contentQuestion">{val.FORUM_CONTENT}</p>
                     </div>
-                    <div className="replyContainer">
-                      {FORUM_REPLY_LIST.map((val, key) => {
-                        return (
-                          <div key={key} className="repliesList">
-                            <p className="nameReply">
-                              Mary Rose Trono: replied
-                            </p>
-                            {/* <p className="titleQuestion">{val.FORUM_ID}</p> */}
-                            <p className="contentReply">
-                              {val.FORUM_REPLY_CONTENT}
-                            </p>
-                          </div>
-                        );
-                      })}
-                    </div>
-                    <div className="replyBox">
+                    <p
+                      className="seeReply"
+                      onClick={() => {
+                        loadComment(val.FORUM_ID);
+                      }}
+                    >
+                      Load comment
+                    </p>
+
+                    <div className="replyBox" id="replyBox">
                       <input
                         type="text"
                         className="replyInput"
                         placeholder="Write a comment..."
+                        id="inputReplyForum"
                         onClick={clickInput}
                         onChange={(e) => setFORUM_REPLY_CONTENT(e.target.value)}
                       />
-                      <p className="sentBtn" onClick={createForumReply}>
+                      <p
+                        className="sentBtn"
+                        onClick={() => {
+                          createForumReply(val.FORUM_ID);
+                        }}
+                      >
                         Reply
                       </p>
                     </div>

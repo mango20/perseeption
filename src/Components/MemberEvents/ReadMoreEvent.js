@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Axios from "axios";
 // import Axios from "axios";
 // import "./ReadMoreAnnouncement.css";
 import { Link } from "react-router-dom";
 
 function ReadMoreEvent() {
+  const [EventInfo, setEventInfo] = useState([]);
+
+  const [EVENT_LIST, setEVENT_LIST] = useState([]);
+  useEffect(() => {
+    Axios.get(`http://localhost:57230/readMoreEvent`).then((response) => {
+      console.log(response.data);
+      setEVENT_LIST(response.data);
+    });
+  }, []);
+
   return (
     <div className="AnnouncementBg">
       <div className="MainHeader">
@@ -39,20 +50,25 @@ function ReadMoreEvent() {
       </div>
 
       <h1 className="announcementTitleHead">Event</h1>
-      <div className="ReadMoreAnnouncementOuter">
-        <img src="/images/events1.jpg" alt="img" className="ReadMoreImg" />
-        <p className="ReadMoreTitle">Internal Badminton</p>
-        <p className="ReadMoreDate">2021-06-04</p>
-        <p className="ReadMoreContent">
-          We are pleased to invite all of you to join our 1st ever Internal
-          Badminton Tournament 2019 organized by PerSEEption Committees on the
-          coming Saturday, 20/04/2021 from 5 p.m. to 9 p.m. at Sport Arena
-          Court. This tournament are held to build a closer relationship with
-          internal staffs and gain confident on yourself. Let’s actively join
-          this tournament to make this activity more fun and laughter with your
-          participation!
-        </p>
-      </div>
+      {EVENT_LIST.map((val, key) => {
+        return (
+          <div key={key} className="ReadMoreAnnouncementOuter">
+            <img src="/images/events1.jpg" alt="img" className="ReadMoreImg" />
+
+            <p className="ReadMoreTitle">{val.EVENT_ID}Internal Badminton</p>
+            <p className="ReadMoreDate">2021-06-04</p>
+            <p className="ReadMoreContent">
+              We are pleased to invite all of you to join our 1st ever Internal
+              Badminton Tournament 2019 organized by PerSEEption Committees on
+              the coming Saturday, 20/04/2021 from 5 p.m. to 9 p.m. at Sport
+              Arena Court. This tournament are held to build a closer
+              relationship with internal staffs and gain confident on yourself.
+              Let’s actively join this tournament to make this activity more fun
+              and laughter with your participation!
+            </p>
+          </div>
+        );
+      })}
       <div className="footer">
         <div className="footIcon">
           <img src="/images/logoIcon.png" alt="img" className="imgfooterIcon" />

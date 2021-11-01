@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function TermsCondition() {
   const logout = () => {
-    Axios.get("http://localhost:3005/logout").then((response) => {
+    Axios.get("http://localhost:57230/logout").then((response) => {
       // alert("sdf");
       window.location.reload();
     });

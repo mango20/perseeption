@@ -339,7 +339,7 @@ function Registration() {
       (abacus[0].checked === true || abacus[1].checked === true) &&
       (brailler[0].checked === true || brailler[1].checked === true)
     ) {
-      Axios.post("http://localhost:3005/register", {
+      Axios.post("http://localhost:57230/register", {
         USERNAME: usernameReg,
         USER_PASSWORD: passwordReg,
 
@@ -670,7 +670,7 @@ function Registration() {
     }
   };
   //   useEffect(() => {
-  //     Axios.get("http://localhost:3005/login").then((response) => {
+  //     Axios.get("http://localhost:57230/login").then((response) => {
   //       console.log(response);
   //     });
   //   }, []);
@@ -720,7 +720,7 @@ function Registration() {
   };
 
   const checkForm = () => {
-    Axios.get("http://localhost:3005/api/getLastMember").then((response) => {
+    Axios.get("http://localhost:57230/api/getLastMember").then((response) => {
       setLastMember(response.data);
     });
     document.getElementById("Registered_MemberOuter").style.display = "none";

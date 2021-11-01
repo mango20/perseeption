@@ -36,6 +36,8 @@
 .announcement_Img {
   width: 100%;
   margin-bottom: 6px;
+  height: 200px;
+  object-fit: cover;
 }
 
 .event_Title {
@@ -81,4 +83,62 @@
 
 .readMoreEvent:hover {
   background-color: #009744;
+}
+
+.popUpReadmoreEvent {
+  display: none;
+  background-color: #36a9e1;
+}
+
+#memberEventList_id_ {
+  background-color: #36a9e1;
+  width: 100%;
+  margin: auto;
+  padding: 0px 50px 50px;
+}
+
+.event_TitleRM {
+  color: #fff;
+  font-size: 30px;
+  font-weight: bold;
+  text-shadow: 1px 1px 5px black;
+}
+
+.event_DateRM {
+  color: #fff;
+  font-size: 16px;
+  margin-top: 10px;
+  text-shadow: 1px 1px 10px black;
+}
+
+.event_ContentRM {
+  color: #fff;
+  font-size: 20px;
+  margin-top: 10px;
+  text-shadow: 1px 1px 10px black;
+}
+
+.announcement_Img_ {
+  width: 100%;
+  object-fit: cover;
+  height: 400px;
+  margin-bottom: 20px;
+}
+
+#xbtnReadMore {
+  /* background-color: #fff; */
+  width: 8%;
+  padding: 5px;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 18px;
+  cursor: pointer;
+  border: 2px solid #fff;
+  color: #ffff;
+  /* background-color: white; */
+}
+
+#xbtnReadMore:hover {
+  background-color: rgb(240, 240, 240);
+  color: black;
 }

@@ -67,7 +67,7 @@
 }
 
 .sidebar a {
-  margin-top: 20px;
+  margin-top: 15px;
   padding: 10px 0px 6px 10px;
   /* padding-left: 10px; */
   text-decoration: none;
@@ -83,6 +83,8 @@
 }
 .eventAdImg {
   width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
 .eventAdminRender {

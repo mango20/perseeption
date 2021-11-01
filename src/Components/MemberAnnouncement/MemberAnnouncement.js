@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function MemberAnnouncement() {
   const [memberAnnouncementList, setMemberAnnouncementList] = useState([]);
   useEffect(() => {
-    Axios.get("http://localhost:3005/api/getMemberAnnouncement").then(
+    Axios.get("http://localhost:57230/api/getMemberAnnouncement").then(
       (response) => {
         setMemberAnnouncementList(response.data);
       }
@@ -16,7 +16,7 @@ function MemberAnnouncement() {
   const [USER_ID, setUSER_ID] = useState("");
 
   useEffect(() => {
-    Axios.get("http://localhost:3005/login").then((response) => {
+    Axios.get("http://localhost:57230/login").then((response) => {
       console.log(response.data.loggedIn);
       if (response.data.loggedIn === true) {
         setUSER_ID(response.data.user[0].USER_ID);
@@ -36,7 +36,7 @@ function MemberAnnouncement() {
   };
 
   const logout = () => {
-    Axios.get("http://localhost:3005/logout").then((response) => {
+    Axios.get("http://localhost:57230/logout").then((response) => {
       // alert("sdf");
       window.location.reload();
     });
@@ -46,6 +46,43 @@ function MemberAnnouncement() {
     document.getElementById("loggedInImg").style.display = "none";
     document.getElementById("dropdown-content").style.display = "none";
     // window.location.reload();
+  };
+
+  const backAnnouncementReadMore = () => {
+    Axios.get("http://localhost:57230/getMemberAnnouncement").then(
+      (response) => {
+        setMemberAnnouncementList(response.data);
+        console.log(response.data);
+      }
+    );
+    document.getElementById("popUpReadmoreAnnouncement_id").style.display =
+      "none";
+    // document.getElementById("memberEventList_id").style.display = "block";
+    document.getElementById("memberAnnouncementList_id_").style.display =
+      "grid";
+  };
+
+  const readMoreAnnouncement = (ANNOUNCEMENT_ID) => {
+    console.log(ANNOUNCEMENT_ID);
+    document.getElementById("popUpReadmoreAnnouncement_id").style.display =
+      "block";
+    document.getElementById("memberAnnouncementList_id_").style.display =
+      "none";
+    Axios.get(
+      `http://localhost:57230/readMoreAnnouncement/${ANNOUNCEMENT_ID}`
+    ).then((response) => {
+      console.log(response);
+      setMemberAnnouncementList(
+        memberAnnouncementList.filter((val) => {
+          // console.log(response);
+          return val.ANNOUNCEMENT_ID === ANNOUNCEMENT_ID;
+        })
+      );
+      // Axios.get("http://localhost:57230:57230/AdminList").then((response) => {
+      //   setADMIN_LIST(response.data);
+      //   console.log(response.data);
+      // });
+    });
   };
 
   return (
@@ -96,22 +133,55 @@ function MemberAnnouncement() {
         </div>
       </div>
       <h1 className="announcementTitleHead">Announcement</h1>
-      <div className="memberAnnouncementList">
+      <div className="memberAnnouncementList" id="memberAnnouncementList_id_">
         {memberAnnouncementList.map((val, key) => {
           return (
             <div key={key} className="announcementRender">
               {/* <h1>{val.USER_ID}</h1> */}
               <img
-                src="/images/events1.jpg"
+                src={val.ANNOUNCEMENT_IMAGE}
                 alt="img"
                 className="announcement_Img"
               />
               <p className="announcement_Title">{val.ANNOUNCEMENT_TITLE}</p>
               <p className="announcement_Date">{val.ANNOUNCEMENT_DATE}</p>
               <p className="announcement_Content">{val.ANNOUNCEMENT_CONTENT}</p>
-              <Link to="/ReadMoreAnnouncement" className="readMoreAnnouncement">
+              <p
+                className="readMoreAnnouncement"
+                onClick={() => {
+                  readMoreAnnouncement(val.ANNOUNCEMENT_ID);
+                }}
+              >
                 Read More
-              </Link>
+              </p>
+            </div>
+          );
+        })}
+      </div>
+      <div className="memberAnnouncementList_" id="_memberAnnouncementList_id_">
+        {memberAnnouncementList.map((val, key) => {
+          return (
+            <div
+              key={key}
+              className="popUpReadmoreAnnouncement"
+              id="popUpReadmoreAnnouncement_id"
+            >
+              <p
+                onClick={backAnnouncementReadMore}
+                id="xbtnReadMoreAnnouncement"
+              >
+                back
+              </p>
+              <img
+                src={val.ANNOUNCEMENT_IMAGE}
+                alt="img"
+                className="announcement_Img_"
+              />
+              <p className="announcement_TitleRM">{val.ANNOUNCEMENT_TITLE}</p>
+              <p className="announcement_DateRM">{val.ANNOUNCEMENT_DATE}</p>
+              <p className="announcement_ContentRM">
+                {val.ANNOUNCEMENT_CONTENT}
+              </p>
             </div>
           );
         })}
@@ -139,7 +209,7 @@ function MemberAnnouncement() {
         </div>
         <div className="fbLogo">
           <a
-            href="https://www.facebook.com/PAVIC.ph"
+            href="https://db.skidax.com/www.facebook.com/PAVIC.ph"
             className="fa fa-facebook"
           >
             {}

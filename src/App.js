@@ -20,6 +20,7 @@ import ReadMoreAnnouncement from "./Components/MemberAnnouncement/ReadMoreAnnoun
 import ReadMoreEvent from "./Components/MemberEvents/ReadMoreEvent";
 import AdminContactUs from "./Components/AdminContactUs/AdminContactUs";
 import MemberProfile from "./Components/MemberProfile/MemberProfile";
+import resetpassword from "./Components/Login/resetpassword";
 
 function App() {
   return (
@@ -62,6 +63,11 @@ function App() {
         <Route path="/MemberEvents" exact component={MemberEvents}></Route>
         <Route path="/Member" exact component={Member}></Route>
         <Route path="/Registration" exact component={Registration}></Route>
+        <Route
+          path="/resetpassword/:USER_ID/:TOKEN"
+          exact
+          component={resetpassword}
+        ></Route>
       </Switch>
     </Router>
   );

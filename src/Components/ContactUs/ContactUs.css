@@ -163,3 +163,108 @@
   height: 380px;
   border: none;
 }
+
+#popUpGetMsgCont {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.575);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: none;
+}
+
+#popUpGetMsgInCont {
+  position: absolute;
+  /* left: 50%; */
+  /* right: 50%; */
+
+  top: 200px;
+  border: solid black 1px;
+  /* padding: 10px 25px; */
+  background-color: rgb(233, 233, 233);
+  text-align: justify;
+  font-size: 16px;
+  width: 500px;
+  display: grid;
+  /* padding: 0px 30px; */
+  /* height: 300px; */
+  border: none;
+  border-radius: 5px;
+  margin: auto;
+  top: 50;
+  left: 0;
+  bottom: 50;
+  right: 0;
+  /* height: 500px; */
+  display: none;
+}
+#popUpGetMsgInCont h1 {
+  text-align: center;
+  padding: 50px 0px 50px;
+}
+#popUpGetMsgInCont h2 {
+  background-color: yellow;
+  padding: 10px 20px;
+  /* color: #fff; */
+  /* text-align: center; */
+}
+
+#contactUsSent {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.575);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: none;
+}
+
+#popUpGetMsgInCont__ {
+  position: absolute;
+  /* left: 50%; */
+  /* right: 50%; */
+
+  top: 200px;
+  border: solid black 1px;
+  /* padding: 10px 25px; */
+  background-color: rgb(233, 233, 233);
+  text-align: justify;
+  font-size: 16px;
+  width: 500px;
+  display: grid;
+  /* padding: 0px 30px; */
+  /* height: 300px; */
+  border: none;
+  border-radius: 5px;
+  margin: auto;
+  top: 50;
+  left: 0;
+  bottom: 50;
+  right: 0;
+  /* display: none; */
+}
+
+#popUpGetMsgInCont__ h1 {
+  text-align: center;
+  padding: 0px 0px 30px;
+}
+#popUpGetMsgInCont__ h2 {
+  background-color: #009744;
+  padding: 10px 20px;
+  color: #fff;
+  /* text-align: center; */
+}
+
+.fa-check-circle {
+  font-size: 100px;
+  text-align: center;
+  padding: 20px;
+  color: #009744;
+}

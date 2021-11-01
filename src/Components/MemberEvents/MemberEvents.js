@@ -5,9 +5,41 @@ import { Link } from "react-router-dom";
 
 function MemberEvents() {
   const [USER_ID, setUSER_ID] = useState("");
+  const [EVENT_LIST, setEVENT_LIST] = useState([]);
+  const [EVENT_LIST_, setEVENT_LIST_] = useState([]);
 
+  const readMoreEvents_ = (EVENT_ID) => {
+    console.log(EVENT_ID);
+    document.getElementById("popUpReadmoreEvent_id").style.display = "block";
+    document.getElementById("memberEventList_id").style.display = "none";
+    Axios.get(`http://localhost:57230/readMoreEvent/${EVENT_ID}`).then(
+      (response) => {
+        console.log(response);
+        setEVENT_LIST(
+          EVENT_LIST.filter((val) => {
+            // console.log(response);
+            return val.EVENT_ID === EVENT_ID;
+          })
+        );
+        // Axios.get("http://localhost:57230/AdminList").then((response) => {
+        //   setADMIN_LIST(response.data);
+        //   console.log(response.data);
+        // });
+      }
+    );
+  };
+
+  const backEventReadMore = () => {
+    Axios.get("http://localhost:57230/api/getMemberEvent").then((response) => {
+      setEVENT_LIST(response.data);
+      console.log(response.data);
+    });
+    document.getElementById("popUpReadmoreEvent_id").style.display = "none";
+    // document.getElementById("memberEventList_id").style.display = "block";
+    document.getElementById("memberEventList_id").style.display = "grid";
+  };
   useEffect(() => {
-    Axios.get("http://localhost:3005/login").then((response) => {
+    Axios.get("http://localhost:57230/login").then((response) => {
       console.log(response.data.loggedIn);
       if (response.data.loggedIn === true) {
         setUSER_ID(response.data.user[0].USER_ID);
@@ -18,9 +50,8 @@ function MemberEvents() {
     });
   }, []);
 
-  const [EVENT_LIST, setEVENT_LIST] = useState([]);
   useEffect(() => {
-    Axios.get("http://localhost:3005/api/getMemberEvent").then((response) => {
+    Axios.get("http://localhost:57230/api/getMemberEvent").then((response) => {
       setEVENT_LIST(response.data);
     });
   }, []);
@@ -34,10 +65,11 @@ function MemberEvents() {
   };
 
   const logout = () => {
-    Axios.get("http://localhost:3005/logout").then((response) => {
+    Axios.get("http://localhost:57230/logout").then((response) => {
       // alert("sdf");
       window.location.reload();
     });
+
     localStorage.clear();
     document.getElementById("floatBtn").style.display = "block";
     document.getElementById("LoginHeader").style.display = "block";
@@ -93,21 +125,49 @@ function MemberEvents() {
         </div>
       </div>
       <h1 className="eventTitle_Head">Event</h1>
-      <div className="memberEventList">
+      <div className="memberEventList" id="memberEventList_id">
         {EVENT_LIST.map((val, key) => {
           return (
-            <div key={key} className="eventRender">
+            <div key={key} className="eventRender" id="eventRender_id">
               <img
-                src="/images/events2.jpg"
+                src={val.EVENT_IMAGE}
                 alt="img"
                 className="announcement_Img"
               />
               <p className="event_Title">{val.EVENT_TITLE}</p>
               <p className="event_Date">{val.EVENT_DATE}</p>
               <p className="event_Content">{val.EVENT_CONTENT}</p>
-              <Link to="/ReadMoreEvent" className="readMoreEvent">
+              <p
+                className="readMoreEvent"
+                onClick={() => {
+                  readMoreEvents_(val.EVENT_ID);
+                }}
+              >
                 Read More
-              </Link>
+              </p>
+            </div>
+          );
+        })}
+      </div>
+      <div className="memberEventList_" id="memberEventList_id_">
+        {EVENT_LIST.map((val, key) => {
+          return (
+            <div
+              key={key}
+              className="popUpReadmoreEvent"
+              id="popUpReadmoreEvent_id"
+            >
+              <p onClick={backEventReadMore} id="xbtnReadMore">
+                back
+              </p>
+              <img
+                src={val.EVENT_IMAGE}
+                alt="img"
+                className="announcement_Img_"
+              />
+              <p className="event_TitleRM">{val.EVENT_TITLE}</p>
+              <p className="event_DateRM">{val.EVENT_DATE}</p>
+              <p className="event_ContentRM">{val.EVENT_CONTENT}</p>
             </div>
           );
         })}

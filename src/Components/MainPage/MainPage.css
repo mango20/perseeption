@@ -80,7 +80,7 @@
   .MainHeader {
     grid-template-columns: 0.3fr 0fr 1.1fr;
   }
-  
+
   /* .imgIcon {
     display: none;
   } */
@@ -454,6 +454,8 @@
 /* Values Event */
 .eventImgMain {
   width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
 .eventTitleMain {

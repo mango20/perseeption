@@ -333,3 +333,63 @@
 .cancelApproveMember:hover {
   background-color: rgb(177, 177, 177);
 }
+
+.outerAddNewMember_ {
+  /* display: none; */
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.575);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  /* opacity: 0.3; */
+}
+.innerAddNewMember_ {
+  position: absolute;
+  left: 6%;
+  top: 8%;
+  border: solid black 1px;
+  padding: 10px;
+  background-color: rgb(233, 233, 233);
+  text-align: justify;
+  font-size: 16px;
+  width: 90%;
+  height: 550px;
+  display: grid;
+  padding: 30px 50px;
+  border: none;
+  border-radius: 5px;
+  /* display: none; */
+  /* opacity: 1; */
+}
+
+.innerAddNewMember_ input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.form_addMember {
+  overflow-y: scroll;
+}
+
+/* .addMemberRadio {
+  display: grid;
+  grid-template-areas: "below12_ monthly_Income_1";
+}
+
+.below12_ {
+  grid-area: below12_;
+}
+
+.monthly_Income_1 {
+  grid-area: monthly_Income_1;
+} */

@@ -12,42 +12,131 @@ function Events() {
   const [USER_ID, setUSER_ID] = useState("");
   // const [loginStatus, setLoginStatus] = useState("");
   // const [userList, setuserList] = useState([]);
+  const [USERNAME_, setUSERNAME] = useState([]);
+
   Axios.defaults.withCredentials = true;
 
   useEffect(() => {
-    Axios.get("http://localhost:3005/login").then((response) => {
+    Axios.get("http://localhost:57230/login").then((response) => {
       console.log(response.data.loggedIn);
       if (response.data.loggedIn === true) {
-        setUSER_ID(response.data.user[0].USER_ID);
+        setUSERNAME(response.data.user);
       } else {
         window.location = "/Login";
       }
     });
   }, []);
+
+  const logout = () => {
+    Axios.get("http://localhost:57230/logout").then((response) => {
+      console.log(response.data);
+      if (response.data.loggedIn === false) {
+        alert("logout");
+        window.location = "/Login";
+      } else {
+        alert("not logout");
+      }
+    });
+  };
+
+  const [eventInformation, setEventInformation] = useState({
+    title: "",
+    content: "",
+    file: [],
+    filepreview: null,
+  });
+
+  const handleInputChange = (event) => {
+    setEventInformation({
+      ...eventInformation,
+      file: event.target.files[0],
+      filepreview: URL.createObjectURL(event.target.files[0]),
+    });
+  };
+
+  const handleInputChange_ = (event) => {
+    setEventInformation({
+      ...eventInformation,
+      title: document.getElementById("inputEventTitle").value,
+      content: document.getElementById("inputEventContent").value,
+    });
+  };
+
+  const submit = async () => {
+    const formdata_ = new FormData();
+    formdata_.append("image", eventInformation.file);
+    console.log(eventInformation.file);
+    formdata_.append("title", eventInformation.title);
+    formdata_.append("content", eventInformation.content);
+    if (
+      eventInformation.content === "" ||
+      eventInformation.file.length === 0 ||
+      eventInformation.content === ""
+    ) {
+      let timerId = setInterval(
+        () =>
+          (document.getElementById("titleMessage").innerHTML =
+            "Please fill out form completely!"),
+        0
+      );
+
+      // Timeout
+      setTimeout(() => {
+        clearInterval(timerId);
+        document.getElementById("titleMessage").innerHTML = "";
+      }, 3000);
+      return false;
+    } else
+      Axios.post("http://localhost:57230/uploadEvent", formdata_, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+    document.getElementById("messageEventPopUpouter").style.display = "block";
+    document.getElementById("messageEvent_Content").style.display = "block";
+
+    setTimeout(function () {
+      document.getElementById("messageEventPopUpouter").style.display = "none";
+      document.getElementById("messageEvent_Content").style.display = "none";
+    }, 3000);
+    Axios.get("http://localhost:57230/api/getAnnouncement").then((response) => {
+      setEVENT_LIST(response.data);
+    });
+  };
+
+  // useEffect(() => {
+  //   Axios.get("http://localhost:57230/login").then((response) => {
+  //     console.log(response.data.loggedIn);
+  //     if (response.data.loggedIn === true) {
+  //       setUSER_ID(response.data.user[0].USER_ID);
+  //     } else {
+  //       window.location = "/Login";
+  //     }
+  //   });
+  // }, []);
   // Render
   useEffect(() => {
-    Axios.get("http://localhost:3005/api/getEvent").then((response) => {
+    Axios.get("http://localhost:57230/api/getEvent").then((response) => {
       setEVENT_LIST(response.data);
     });
   }, []);
 
   // useEffect(() => {
-  //   Axios.get("http://localhost:3005/api/getUser").then((response) => {
+  //   Axios.get("http://localhost:57230/api/getUser").then((response) => {
   //     setuserList(response.data);
   //   });
   // }, []);
 
   //Get User ID
-  useEffect(() => {
-    Axios.get("http://localhost:3005/login").then((response) => {
-      if (response.data.loggedIn === true) {
-        setUSER_ID(response.data.user[0].USER_ID);
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   Axios.get("http://localhost:57230/login").then((response) => {
+  //     if (response.data.loggedIn === true) {
+  //       setUSER_ID(response.data.user[0].USER_ID);
+  //     }
+  //   });
+  // }, []);
 
   // Create Announcement
   const createEvent = () => {
+    Axios.post("http://localhost:57230/upload", {});
     const announcementTitleInput =
       document.getElementById("inputEventTitle").value;
 
@@ -73,7 +162,7 @@ function Events() {
 
       // Insert Announcement
     } else {
-      Axios.post("http://localhost:3005/api/insertEvents", {
+      Axios.post("http://localhost:57230/api/insertEvents", {
         EVENT_TITLE: EVENT_TITLE,
         EVENT_CONTENT: EVENT_CONTENT,
         USER_ID: USER_ID,
@@ -92,7 +181,7 @@ function Events() {
       document.getElementById("inputEventContent").value = "";
       setEVENT_TITLE("");
       setEVENT_CONTENT("");
-      Axios.get("http://localhost:3005/api/getAdminEvent").then((response) => {
+      Axios.get("http://localhost:57230/api/getAdminEvent").then((response) => {
         setEVENT_LIST(response.data);
       });
     }
@@ -100,7 +189,7 @@ function Events() {
 
   // Delete Announcement
   const deleteEvent = (EVENT_ID) => {
-    Axios.delete(`http://localhost:3005/api/deleteEvent/${EVENT_ID}`).then(
+    Axios.delete(`http://localhost:57230/api/deleteEvent/${EVENT_ID}`).then(
       (response) => {
         console.log(response);
         setEVENT_LIST(
@@ -108,7 +197,7 @@ function Events() {
             return val.EVENT_ID !== EVENT_ID; // Filter/remove if it not equals to id
           })
         );
-        Axios.get("http://localhost:3005/api/getEvent").then((response) => {
+        Axios.get("http://localhost:57230/api/getEvent").then((response) => {
           setEVENT_LIST(response.data);
         });
       }
@@ -117,7 +206,7 @@ function Events() {
 
   // Update Title
   const updateEventTitle = (EVENT_ID) => {
-    Axios.put("http://localhost:3005/api/updateEventTitle", {
+    Axios.put("http://localhost:57230/api/updateEventTitle", {
       EVENT_ID: EVENT_ID,
       EVENT_TITLE: NEW_EVENT_TITLE,
     }).then((response) => {
@@ -132,7 +221,7 @@ function Events() {
         })
       );
 
-      Axios.get("http://localhost:3005/api/getEvent").then((response) => {
+      Axios.get("http://localhost:57230/api/getEvent").then((response) => {
         setEVENT_LIST(response.data);
       });
     });
@@ -140,7 +229,7 @@ function Events() {
 
   // Update Content
   const updateEventContent = (EVENT_ID) => {
-    Axios.put("http://localhost:3005/api/updateEventContent", {
+    Axios.put("http://localhost:57230/api/updateEventContent", {
       EVENT_ID: EVENT_ID,
       EVENT_CONTENT: NEW_EVENT_REVIEW,
     }).then((response) => {
@@ -158,7 +247,7 @@ function Events() {
       //   setNewReview("");
       //   document.getElementById("updateAnnouncementContentID").value = "";
 
-      Axios.get("http://localhost:3005/api/getEvent").then((response) => {
+      Axios.get("http://localhost:57230/api/getEvent").then((response) => {
         setEVENT_LIST(response.data);
       });
     });
@@ -172,7 +261,13 @@ function Events() {
         </div>
         <Link to="/AdminProfile" className="profileIcon">
           <img src="/images/events1.jpg" alt="img" className="profilePicture" />
-          <p className="profileNameHeader">Charmaine</p>
+          {USERNAME_.map((val, key) => {
+            return (
+              <p key={key} className="profileNameHeader">
+                {val.USERNAME}
+              </p>
+            );
+          })}
         </Link>
       </div>
       <div className="eventCont">
@@ -201,9 +296,9 @@ function Events() {
             <i className="fa fa-user"></i>Profile
           </Link>
           <div className="line"></div>
-          <Link to="/" className="logout_Admin">
-            <i className="fa fa-sign-out"></i> Logout
-          </Link>
+          <p className="logout_Admin" onClick={logout}>
+            <i className="fa fa-sign-out" id="adminLogout"></i> Logout
+          </p>
         </div>
 
         <div className="messageEventPopUpouter" id="messageEventPopUpouter">
@@ -221,7 +316,7 @@ function Events() {
             placeholder="Enter Title"
             id="inputEventTitle"
             className="inputeventTitle"
-            onChange={(e) => setEVENT_TITLE(e.target.value)}
+            onChange={handleInputChange_}
           />
 
           <label className="contentEventAdminTxt">Content</label>
@@ -229,11 +324,17 @@ function Events() {
             placeholder="Enter Content"
             id="inputEventContent"
             className="eventAdminContent"
-            onChange={(e) => setEVENT_CONTENT(e.target.value)}
+            onChange={handleInputChange_}
           />
           <div className="containerBtnAnnouncement">
-            <input type="file" className="fileBtn" />
-            <button onClick={createEvent} className="postEventBtn">
+            {/* <input type="file" className="fileBtn" name="image" /> */}
+            <input
+              type="file"
+              className="fileBtn"
+              name="upload_file"
+              onChange={handleInputChange}
+            />
+            <button onClick={() => submit()} className="postEventBtn">
               Post Event
             </button>
           </div>
@@ -243,11 +344,7 @@ function Events() {
           {EVENT_LIST.map((val, key) => {
             return (
               <div key={key} className="eventAdminRender">
-                <img
-                  src="/images/events1.jpg"
-                  alt="img"
-                  className="eventAdImg"
-                />
+                <img src={val.EVENT_IMAGE} alt="img" className="eventAdImg" />
                 <p className="eventAdmin_Title">{val.EVENT_TITLE}</p>
                 <p className="eventAdmin_Date">{val.EVENT_DATE}</p>
                 <p className="eventAdmin_Content">{val.EVENT_CONTENT}</p>

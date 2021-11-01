@@ -18,6 +18,9 @@
   display: none;
 }
 
+.memproCont::-webkit-scrollbar {
+  display: none;
+}
 .privacyCont li {
   margin-left: 35px;
   margin-bottom: 10px;
@@ -29,4 +32,32 @@
 
 .privacyCont p {
   margin-bottom: 10px;
+}
+
+.member_Profile_info_ {
+  position: absolute;
+  left: 6%;
+  top: 8%;
+  border: solid black 1px;
+  padding: 10px;
+  background-color: #fff;
+  text-align: justify;
+  font-size: 16px;
+  width: 90%;
+  height: 550px;
+  /* display: grid;
+  grid-template-areas: "accData none none"
+   "fathersData_ none none"
+   "mothersData_ none none"
+   "guardianssData_ none none"
+   "monthlyIncomeData_ none none"
+   ; */
+  padding: 30px 50px;
+  border: none;
+  border-radius: 5px;
+  overflow-y: scroll;
+}
+
+.memproCont {
+  overflow-y: scroll;
 }

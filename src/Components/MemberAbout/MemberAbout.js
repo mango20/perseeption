@@ -7,7 +7,7 @@ function MemberAbout() {
   const [USER_ID, setUSER_ID] = useState("");
 
   useEffect(() => {
-    Axios.get("http://localhost:3005/login").then((response) => {
+    Axios.get("http://localhost:57230/login").then((response) => {
       console.log(response.data.loggedIn);
       if (response.data.loggedIn === true) {
         setUSER_ID(response.data.user[0].USER_ID);
@@ -27,7 +27,7 @@ function MemberAbout() {
   };
 
   const logout = () => {
-    Axios.get("http://localhost:3005/logout").then((response) => {
+    Axios.get("http://localhost:57230/logout").then((response) => {
       // alert("sdf");
       window.location.reload();
     });
