@@ -46,7 +46,7 @@ const mysql = require("mysql");
 
 // app.use(express.static("public_html"));
 const db = mysql.createConnection({
-  host: "mysql.stackcp.comt",
+  host: "mysql.stackcp.com",
   port: 57230,
   user: "perseeption_db-36352871",
   password: "WA|K^#,sj2!%",
