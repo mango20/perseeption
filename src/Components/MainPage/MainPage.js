@@ -25,7 +25,7 @@ function MainPage() {
 
   useEffect(() => {
     Axios.defaults.withCredentials = true;
-    Axios.get("http://localhost:57230/login").then((response) => {
+    Axios.get("http://localhost:3008/login").then((response) => {
       Axios.defaults.withCredentials = true;
       console.log(response.data.loggedIn);
       console.log(response.data.user);
@@ -46,7 +46,7 @@ function MainPage() {
 
   // Render
   useEffect(() => {
-    Axios.get("http://localhost:57230/api/getMainEvent").then((response) => {
+    Axios.get("http://localhost:3008/api/getMainEvent").then((response) => {
       setMAIN_EVENT(response.data);
     });
   }, []);
@@ -74,7 +74,7 @@ function MainPage() {
 
   const history = useHistory();
   const logout = () => {
-    Axios.get("http://localhost:57230/logout").then((response) => {
+    Axios.get("http://localhost:3008/logout").then((response) => {
       console.log(response.data);
       if (response.data.loggedIn === false) {
         alert("logout");
