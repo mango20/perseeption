@@ -26,8 +26,9 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.2"
   },
+  "proxy": "http://localhost:3008",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node db.js",
     "devStart": "nodemon db.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
