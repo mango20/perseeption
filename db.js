@@ -27,7 +27,7 @@ const multer = require("multer");
 // app.post("/upload", upload.single("image"), (req, res) => {
 //   res.send("Image Uploaded");
 // });
-const PORT = process.env.PORT || 57230;
+const PORT = process.env.PORT || 3008;
 // const PORT = process.env.PORT || 3005;
 // const storage = multer.diskStorage({})
 // const multer = require({ storage: storage });
